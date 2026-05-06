@@ -21,6 +21,7 @@ vim.opt.signcolumn = 'yes'
 
 vim.opt.smoothscroll = true
 vim.opt.wrap = false
+vim.opt.cursorline = true
 -- vim.opt.guicursor = "n-v-c:block,i:block"
 
 vim.opt.clipboard = 'unnamedplus'
@@ -61,15 +62,23 @@ vim.pack.add(color_schemes)
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
 vim.g.gruvbox_material_colors_override = {
-    bg0 = { '#111111', '234' },
-
-    bg1 = { '#161616', '235' },
-    bg2 = { '#1c1c1c', '236' },
-    bg3 = { '#222222', '237' },
+    -- bg0 = { '#111111', '234' },
+    --
+    -- bg1 = { '#161616', '235' },
+    -- bg2 = { '#1c1c1c', '236' },
+    -- bg3 = { '#222222', '237' },
 
     -- bg_statusline1 = { '#161616', '235' },
     -- bg_statusline2 = { '#1c1c1c', '236' },
     -- bg_statusline3 = { '#222222', '237' },
+    bg0 = { '#111111', '234' },
+
+    bg1 = { '#1d1d1d', '235' },
+    bg2 = { '#262626', '236' },
+    bg3 = { '#303030', '237' },
+
+    -- optional:
+    bg_visual = { '#3a3a3a', '239' },
   }
 vim.cmd.colorscheme('gruvbox-material')
 
@@ -84,16 +93,14 @@ local qol_extensions = {
   'https://github.com/nvim-telescope/telescope.nvim',
   'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
-
-  -- LSP / package manager
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/mason-org/mason.nvim',
-
-  -- Completion menu
   'https://github.com/hrsh7th/nvim-cmp',
   'https://github.com/hrsh7th/cmp-nvim-lsp',
   'https://github.com/hrsh7th/cmp-buffer',
   'https://github.com/hrsh7th/cmp-path',
+  'https://github.com/chentoast/marks.nvim',
+  'https://github.com/windwp/nvim-autopairs',
 }
 vim.pack.add(qol_extensions)
 
@@ -104,6 +111,18 @@ vim.diagnostic.config({
     prefix = "●",
   },
 })
+
+vim.g.compile_mode = {
+  default_command = {
+    c = 'cmake --build build',
+    cpp = 'cmake --build build',
+    odin = 'odin build .',
+    go = 'go run .',
+    lua = 'lovec .', -- love2d
+  },
+  focus_compilation_buffer = true,
+  auto_jump_to_first_error = true,
+}
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -117,8 +136,9 @@ local builtin = require('telescope.builtin')
   vim.keymap.set('n', '<leader>c', builtin.colorscheme, { desc = 'Telescope colorscheme' })
   vim.keymap.set('n', '<leader>S', builtin.tags, { desc = 'Telescope all tags' })
   vim.keymap.set('n', '<leader>s', builtin.current_buffer_tags, { desc = 'Telescope buffer tags' })
+  vim.keymap.set('n', '<leader>m', builtin.marks, { desc ='Telescope marks'})
   vim.keymap.set('n', '<leader>n', function()
-  builtin.find_files { cwd = vim.fn.stdpath('config') }
+  builtin.find_files { cwd = vim.fn.stdpath('config') } -- TODO: change to just open the config file, no need for telescope picker
 end, { desc = 'Find Neovim config files' })
 
 require('telescope').setup {
@@ -133,6 +153,9 @@ require('telescope').setup {
     find_files = {
       theme = 'dropdown',
     },
+    marks = { -- maybe just remove
+      theme = 'dropdown',
+    },
   },
 }
 
@@ -145,7 +168,15 @@ require('oil').setup {
 }
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Oil - Open parent directory' })
 
+
+require('nvim-autopairs').setup {}
+
+require('marks').setup {}
+
+require('marks').setup {}
+
 require('lualine').setup()
+
 require('smear_cursor').setup()
 
 -- Treesitter
