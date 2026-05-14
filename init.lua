@@ -105,9 +105,9 @@ vim.diagnostic.config({
 
 vim.g.compile_mode = {
   default_command = {
-    c = 'cmake --build build',
-    cpp = 'cmake --build build',
-    odin = 'odin build .',
+    c = 'cmake --build build && build/game.exe',
+    cpp = 'cmake --build build && build/game.exe',
+    odin = 'odin run .',
     go = 'go run .',
     lua = 'lovec .', -- love2d
   },
