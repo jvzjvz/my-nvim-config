@@ -12,6 +12,7 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.winborder = "rounded"
 
+vim.opt.autocomplete = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 vim.opt.background = 'dark'
@@ -83,12 +84,6 @@ local qol_extensions = {
   'https://github.com/nvim-telescope/telescope.nvim',
   'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
-  'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/mason-org/mason.nvim',
-  'https://github.com/hrsh7th/nvim-cmp',
-  'https://github.com/hrsh7th/cmp-nvim-lsp',
-  'https://github.com/hrsh7th/cmp-buffer',
-  'https://github.com/hrsh7th/cmp-path',
   'https://github.com/chentoast/marks.nvim',
   'https://github.com/windwp/nvim-autopairs',
   'https://github.com/kylechui/nvim-surround',
@@ -110,6 +105,8 @@ vim.g.compile_mode = {
     odin = 'odin run .',
     go = 'go run .',
     lua = 'lovec .', -- love2d
+    zig = 'zig build run',
+    rust = 'cargo run',
   },
   focus_compilation_buffer = true,
   auto_jump_to_first_error = true,
@@ -169,15 +166,13 @@ require('nvim-autopairs').setup {}
 
 require('marks').setup {}
 
-require('marks').setup {}
-
 require('lualine').setup()
 
 require('smear_cursor').setup()
 
 -- Treesitter
 local ts = require('nvim-treesitter')
-local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua' }
+local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust' }
 ts.install(ts_parsers)
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -192,83 +187,95 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Mason
-require('mason').setup()
+-- LSP Section Start
 
--- Completion menu
-local cmp = require('cmp')
-local cmp_lsp = require('cmp_nvim_lsp')
-local capabilities = cmp_lsp.default_capabilities()
-
-cmp.setup({
-  completion = {
-    completeopt = 'menu,menuone,noinsert',
-  },
-
-  mapping = cmp.mapping.preset.insert({
-    ['<Tab>'] = cmp.mapping.select_next_item(),
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
-  }),
-
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-    { name = 'buffer' },
-  }),
-})
-
--- LSP configs
-vim.lsp.config('clangd', {
-  capabilities = capabilities,
-  cmd = { 'clangd', '--compile-commands-dir=build' },
-})
-
-vim.lsp.config('lua_ls', {
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        checkThirdParty = false,
-      },
-    },
-  },
-})
-
-local installed_lsps = {
-  'clangd',
-  'lua_ls',
-  'ols',
-  'gopls',
-  'zls',
-}
-
-for _, lsp in ipairs(installed_lsps) do
-  vim.lsp.config(lsp, {
-    capabilities = capabilities
-  })
-end
-vim.lsp.enable(installed_lsps)
-
--- LSP keymaps attach only when an LSP starts for the buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(event)
-    local opts = { buffer = event.buf }
-
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, vim.tbl_extend('force', opts, { desc = 'LSP hover' }))
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, vim.tbl_extend('force', opts, { desc = 'Go to definition' }))
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('force', opts, { desc = 'Go to declaration' }))
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, vim.tbl_extend('force', opts, { desc = 'Go to implementation' }))
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, vim.tbl_extend('force', opts, { desc = 'References' }))
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename symbol' }))
-    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, vim.tbl_extend('force', opts, { desc = 'Code action' }))
-    vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, vim.tbl_extend('force', opts, { desc = 'Line diagnostics' }))
-  end,
-})
+-- local lsp_plugins = {
+--   'https://github.com/neovim/nvim-lspconfig',
+--   'https://github.com/mason-org/mason.nvim',
+--   'https://github.com/hrsh7th/nvim-cmp',
+--   'https://github.com/hrsh7th/cmp-nvim-lsp',
+--   'https://github.com/hrsh7th/cmp-buffer',
+--   'https://github.com/hrsh7th/cmp-path',
+-- }
+-- vim.pack.add(lsp_plugins)
+--
+-- -- Mason
+-- require('mason').setup()
+--
+-- -- Completion menu
+-- local cmp = require('cmp')
+-- local cmp_lsp = require('cmp_nvim_lsp')
+-- local capabilities = cmp_lsp.default_capabilities()
+--
+-- cmp.setup({
+--   completion = {
+--     completeopt = 'menu,menuone,noinsert',
+--   },
+--
+--   mapping = cmp.mapping.preset.insert({
+--     ['<Tab>'] = cmp.mapping.select_next_item(),
+--     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+--     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+--     ['<C-Space>'] = cmp.mapping.complete(),
+--   }),
+--
+--   sources = cmp.config.sources({
+--     { name = 'nvim_lsp' },
+--     { name = 'path' },
+--     { name = 'buffer' },
+--   }),
+-- })
+--
+-- vim.lsp.config('clangd', {
+--   capabilities = capabilities,
+--   cmd = { 'clangd', '--compile-commands-dir=build' },
+-- })
+--
+-- vim.lsp.config('lua_ls', {
+--   capabilities = capabilities,
+--   settings = {
+--     Lua = {
+--       diagnostics = {
+--         globals = { 'vim' },
+--       },
+--       workspace = {
+--         checkThirdParty = false,
+--       },
+--     },
+--   },
+-- })
+--
+-- local installed_lsps = {
+--   'clangd',
+--   'lua_ls',
+--   'ols',
+--   'gopls',
+--   'zls',
+-- }
+--
+-- for _, lsp in ipairs(installed_lsps) do
+--   vim.lsp.config(lsp, {
+--     capabilities = capabilities
+--   })
+-- end
+-- vim.lsp.enable(installed_lsps)
+--
+-- -- LSP keymaps attach only when an LSP starts for the buffer
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   callback = function(event)
+--     local opts = { buffer = event.buf }
+--
+--     vim.keymap.set('n', 'K', vim.lsp.buf.hover, vim.tbl_extend('force', opts, { desc = 'LSP hover' }))
+--     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, vim.tbl_extend('force', opts, { desc = 'Go to definition' }))
+--     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('force', opts, { desc = 'Go to declaration' }))
+--     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, vim.tbl_extend('force', opts, { desc = 'Go to implementation' }))
+--     vim.keymap.set('n', 'gr', vim.lsp.buf.references, vim.tbl_extend('force', opts, { desc = 'References' }))
+--     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename symbol' }))
+--     vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, vim.tbl_extend('force', opts, { desc = 'Code action' }))
+--     vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, vim.tbl_extend('force', opts, { desc = 'Line diagnostics' }))
+--   end,
+-- })
+-- Lsp Section End
 
 local map = vim.keymap.set
 
@@ -304,3 +311,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     (vim.hl or vim.highlight).on_yank()
   end,
 })
+
+-- A match indentation on empty line
+vim.keymap.set('n', 'A', function()
+  if vim.fn.getline('.'):match('^%s*$') then
+    return '"_cc'
+  end
+  return 'A'
+end, { expr = true })
