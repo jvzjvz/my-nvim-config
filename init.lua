@@ -1,8 +1,9 @@
 if vim.g.neovide == true then
-  vim.o.guifont = 'JetBrainsMono Nerd Font Mono:h12'
+  -- vim.o.guifont = 'JetBrainsMono Nerd Font Mono:h12'
   -- vim.o.guifont = 'LythMono Nerd Font:h16:b'
+  -- vim.o.guifont = 'Agave Nerd Font Mono:h16'
   -- vim.o.guifont = 'FiraCode Nerd Font:h16'
-  -- vim.o.guifont = 'Hack Nerd Font Mono:h16'
+  vim.o.guifont = 'Hack Nerd Font Mono:h15'
   vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1,  1.0)<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1,  0.1)<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_transparency = math.min(vim.g.neovide_transparency + 0.05, 1.0)<CR>", { silent = true })
@@ -10,8 +11,8 @@ if vim.g.neovide == true then
   vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.5<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<C-)>", ":lua vim.g.neovide_transparency = 0.9<CR>", { silent = true })
   else
-  vim.pack.add({'https://github.com/sphamba/smear-cursor.nvim'})
-  require('smear_cursor').setup()
+  -- vim.pack.add({'https://github.com/sphamba/smear-cursor.nvim'})
+  -- require('smear_cursor').setup()
 end
 
 vim.g.mapleader = ' '
@@ -28,8 +29,33 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.winborder = "rounded"
 
+-- autocomplete setup start
 vim.opt.autocomplete = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.keymap.set('i', '<Tab>', function()
+  if vim.fn.pumvisible() == 1 then
+    return '<C-n>'
+  else
+    return '<Tab>'
+  end
+end, { expr = true })
+
+vim.keymap.set('i', '<S-Tab>', function()
+  if vim.fn.pumvisible() == 1 then
+    return '<C-p>'
+  else
+    return '<S-Tab>'
+  end
+end, { expr = true })
+
+vim.keymap.set('i', '<CR>', function()
+  if vim.fn.pumvisible() == 1 then
+    return '<C-y>'
+  else
+    return '<CR>'
+  end
+end, { expr = true })
+-- autocomplete setup end
 
 vim.opt.background = 'dark'
 vim.opt.number = true
@@ -39,7 +65,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.smoothscroll = true
 vim.opt.wrap = false
 vim.opt.cursorline = true
--- vim.opt.guicursor = "n-v-c:block,i:block"
+vim.opt.guicursor = "n-v-c:block,i:block"
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -72,23 +98,21 @@ local colorschemes = {
   'https://github.com/AvengeMedia/base46',
   'https://github.com/saeeedhany/parchment.nvim',
   'https://github.com/m-gail/northernlights.vim',
-  'https://github.com/aidyak/hitotose.nvim',
-  'https://github.com/darianmorat/gruvdark.nvim',
+  'https://github.com/theJian/nvim-moonwalk',
+  'https://github.com/funnyVariable/blank.nvim',
 }
 vim.pack.add(colorschemes)
+vim.cmd.colorscheme('parchment')
 
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
 vim.g.gruvbox_material_colors_override = {
     bg0 = { '#111111', '234' },
-
     bg1 = { '#1d1d1d', '235' },
     bg2 = { '#262626', '236' },
     bg3 = { '#303030', '237' },
-
     bg_visual = { '#3a3a3a', '239' },
-  }
-vim.cmd.colorscheme('parchment')
+}
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
