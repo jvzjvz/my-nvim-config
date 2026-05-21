@@ -11,8 +11,8 @@ if vim.g.neovide == true then
   vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.5<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<C-)>", ":lua vim.g.neovide_transparency = 0.9<CR>", { silent = true })
   else
-  -- vim.pack.add({'https://github.com/sphamba/smear-cursor.nvim'})
-  -- require('smear_cursor').setup()
+  vim.pack.add({'https://github.com/sphamba/smear-cursor.nvim'})
+  require('smear_cursor').setup()
 end
 
 vim.g.mapleader = ' '
@@ -30,7 +30,7 @@ vim.opt.softtabstop = 2
 vim.opt.winborder = "rounded"
 
 -- autocomplete setup start
-vim.opt.autocomplete = true
+-- vim.opt.autocomplete = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.keymap.set('i', '<Tab>', function()
   if vim.fn.pumvisible() == 1 then
@@ -65,7 +65,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.smoothscroll = true
 vim.opt.wrap = false
 vim.opt.cursorline = true
-vim.opt.guicursor = "n-v-c:block,i:block"
+-- vim.opt.guicursor = "n-v-c:block,i:block"
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -85,7 +85,7 @@ local colorschemes = {
   'https://github.com/harivansh-afk/cozybox.nvim',
   'https://github.com/oskarnurm/koda.nvim',
   'https://github.com/neanias/everforest-nvim',
-  'https://github.com/Everblush/nvim',
+  {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
   'https://github.com/sainnhe/gruvbox-material',
   'https://github.com/zenbones-theme/zenbones.nvim',
   'https://github.com/sudoscrawl/tokyo-dark.nvim',
@@ -94,12 +94,14 @@ local colorschemes = {
   'https://github.com/deparr/tairiki.nvim',
   'https://github.com/datsfilipe/gruvbox.nvim',
   'https://github.com/metalelf0/kintsugi-nvim',
-  'https://github.com/jaredgorski/Mies.vim',
   'https://github.com/AvengeMedia/base46',
   'https://github.com/saeeedhany/parchment.nvim',
-  'https://github.com/m-gail/northernlights.vim',
-  'https://github.com/theJian/nvim-moonwalk',
   'https://github.com/funnyVariable/blank.nvim',
+  'https://github.com/jackplus-xyz/binary.nvim',
+  'https://github.com/metalelf0/black-metal-theme-neovim',
+  'https://github.com/drewxs/ash.nvim',
+  'https://github.com/hendriknielaender/stardust.nvim',
+  'https://github.com/amedoeyes/eyes.nvim',
 }
 vim.pack.add(colorschemes)
 vim.cmd.colorscheme('parchment')
@@ -228,92 +230,101 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- LSP Section Start
 
--- local lsp_plugins = {
---   'https://github.com/neovim/nvim-lspconfig',
---   'https://github.com/mason-org/mason.nvim',
---   'https://github.com/hrsh7th/nvim-cmp',
---   'https://github.com/hrsh7th/cmp-nvim-lsp',
---   'https://github.com/hrsh7th/cmp-buffer',
---   'https://github.com/hrsh7th/cmp-path',
--- }
--- vim.pack.add(lsp_plugins)
---
--- -- Mason
--- require('mason').setup()
---
--- -- Completion menu
--- local cmp = require('cmp')
--- local cmp_lsp = require('cmp_nvim_lsp')
--- local capabilities = cmp_lsp.default_capabilities()
---
--- cmp.setup({
---   completion = {
---     completeopt = 'menu,menuone,noinsert',
---   },
---
---   mapping = cmp.mapping.preset.insert({
---     ['<Tab>'] = cmp.mapping.select_next_item(),
---     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
---     ['<CR>'] = cmp.mapping.confirm({ select = true }),
---     ['<C-Space>'] = cmp.mapping.complete(),
---   }),
---
---   sources = cmp.config.sources({
---     { name = 'nvim_lsp' },
---     { name = 'path' },
---     { name = 'buffer' },
---   }),
--- })
---
--- vim.lsp.config('clangd', {
---   capabilities = capabilities,
---   cmd = { 'clangd', '--compile-commands-dir=build' },
--- })
---
--- vim.lsp.config('lua_ls', {
---   capabilities = capabilities,
---   settings = {
---     Lua = {
---       diagnostics = {
---         globals = { 'vim' },
---       },
---       workspace = {
---         checkThirdParty = false,
---       },
---     },
---   },
--- })
---
--- local installed_lsps = {
---   'clangd',
---   'lua_ls',
---   'ols',
---   'gopls',
---   'zls',
--- }
---
--- for _, lsp in ipairs(installed_lsps) do
---   vim.lsp.config(lsp, {
---     capabilities = capabilities
---   })
--- end
--- vim.lsp.enable(installed_lsps)
---
--- -- LSP keymaps attach only when an LSP starts for the buffer
--- vim.api.nvim_create_autocmd('LspAttach', {
---   callback = function(event)
---     local opts = { buffer = event.buf }
---
---     vim.keymap.set('n', 'K', vim.lsp.buf.hover, vim.tbl_extend('force', opts, { desc = 'LSP hover' }))
---     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, vim.tbl_extend('force', opts, { desc = 'Go to definition' }))
---     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('force', opts, { desc = 'Go to declaration' }))
---     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, vim.tbl_extend('force', opts, { desc = 'Go to implementation' }))
---     vim.keymap.set('n', 'gr', vim.lsp.buf.references, vim.tbl_extend('force', opts, { desc = 'References' }))
---     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename symbol' }))
---     vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, vim.tbl_extend('force', opts, { desc = 'Code action' }))
---     vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, vim.tbl_extend('force', opts, { desc = 'Line diagnostics' }))
---   end,
--- })
+local lsp_plugins = {
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/mason-org/mason.nvim',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
+  'https://github.com/hrsh7th/nvim-cmp',
+  'https://github.com/hrsh7th/cmp-nvim-lsp',
+  'https://github.com/hrsh7th/cmp-buffer',
+  'https://github.com/hrsh7th/cmp-path',
+}
+vim.pack.add(lsp_plugins)
+
+-- Mason
+require('mason').setup()
+
+-- Completion menu
+local cmp = require('cmp')
+local cmp_lsp = require('cmp_nvim_lsp')
+local capabilities = cmp_lsp.default_capabilities()
+
+cmp.setup({
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
+  },
+
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+  }),
+
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+    { name = 'buffer' },
+  }),
+})
+
+vim.lsp.config('clangd', {
+  capabilities = capabilities,
+  cmd = { 'clangd', '--compile-commands-dir=build' },
+})
+
+vim.lsp.config('lua_ls', {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        checkThirdParty = false,
+      },
+    },
+  },
+})
+
+local installed_lsps = {
+  'clangd',
+  'lua_ls',
+  'ols',
+  'gopls',
+  'zls',
+}
+
+for _, lsp in ipairs(installed_lsps) do
+  vim.lsp.config(lsp, {
+    capabilities = capabilities
+  })
+end
+vim.lsp.enable(installed_lsps)
+
+require('mason-lspconfig').setup({
+  ensure_installed = installed_lsps
+})
+
+
+-- LSP keymaps attach only when an LSP starts for the buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(event)
+    local opts = { buffer = event.buf }
+
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, vim.tbl_extend('force', opts, { desc = 'LSP hover' }))
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, vim.tbl_extend('force', opts, { desc = 'Go to definition' }))
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('force', opts, { desc = 'Go to declaration' }))
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, vim.tbl_extend('force', opts, { desc = 'Go to implementation' }))
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, vim.tbl_extend('force', opts, { desc = 'References' }))
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename symbol' }))
+    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, vim.tbl_extend('force', opts, { desc = 'Code action' }))
+    vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, vim.tbl_extend('force', opts, { desc = 'Line diagnostics' }))
+  end,
+})
+
+
+
 -- Lsp Section End
 
 local map = vim.keymap.set
