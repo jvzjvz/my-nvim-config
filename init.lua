@@ -11,8 +11,8 @@ if vim.g.neovide == true then
   vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.5<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<C-)>", ":lua vim.g.neovide_transparency = 0.9<CR>", { silent = true })
   else
-  vim.pack.add({'https://github.com/sphamba/smear-cursor.nvim'})
-  require('smear_cursor').setup()
+  -- vim.pack.add({'https://github.com/sphamba/smear-cursor.nvim'})
+  -- require('smear_cursor').setup()
 end
 
 vim.g.mapleader = ' '
@@ -104,7 +104,7 @@ local colorschemes = {
   'https://github.com/amedoeyes/eyes.nvim',
 }
 vim.pack.add(colorschemes)
-vim.cmd.colorscheme('parchment')
+vim.cmd.colorscheme('binary')
 
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
