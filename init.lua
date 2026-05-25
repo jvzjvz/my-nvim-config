@@ -64,8 +64,8 @@ vim.opt.signcolumn = 'yes'
 
 vim.opt.smoothscroll = true
 vim.opt.wrap = false
-vim.opt.cursorline = true
--- vim.opt.guicursor = "n-v-c:block,i:block"
+vim.opt.cursorline = false
+vim.opt.guicursor = "n-v-c:block,i:block"
 
 vim.opt.clipboard = 'unnamedplus'
 
