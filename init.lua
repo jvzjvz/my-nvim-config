@@ -29,8 +29,10 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.winborder = "rounded"
 
+require('lsp')
+
 -- autocomplete setup start
-vim.opt.autocomplete = true
+-- vim.opt.autocomplete = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.keymap.set('i', '<Tab>', function()
   if vim.fn.pumvisible() == 1 then
@@ -62,14 +64,14 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
 vim.opt.cursorline = false
-vim.opt.guicursor = "n-v-c:block,i:block"
+-- vim.opt.guicursor = "n-v-c:block,i:block"
 
 vim.opt.smoothscroll = true
 vim.opt.wrap = false
 
 vim.opt.clipboard = 'unnamedplus'
 
--- vim.opt.showmatch = true
+vim.opt.showmatch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
@@ -106,6 +108,7 @@ local colorschemes = {
   'https://github.com/phha/zenburn.nvim',
   'https://github.com/StradNikw/Naysayer.nvim',
 }
+
 vim.pack.add(colorschemes)
 vim.cmd.colorscheme('srcery')
 
