@@ -47,6 +47,7 @@ local installed_lsps = {
   'ols',
   'gopls',
   'zls',
+  -- 'serve_d'
 }
 
 require('mason-lspconfig').setup({

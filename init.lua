@@ -20,6 +20,7 @@ vim.g.localleader = ' '
 vim.opt.timeoutlen = 300
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+vim.opt.termguicolors = true
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -85,32 +86,36 @@ local colorschemes = {
   'https://github.com/Shatur/neovim-ayu',
   'https://github.com/wtfox/jellybeans.nvim',
   'https://github.com/harivansh-afk/cozybox.nvim',
-  'https://github.com/oskarnurm/koda.nvim',
+  -- 'https://github.com/oskarnurm/koda.nvim',
   'https://github.com/neanias/everforest-nvim',
   {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
   'https://github.com/sainnhe/gruvbox-material',
   'https://github.com/zenbones-theme/zenbones.nvim',
-  'https://github.com/sudoscrawl/tokyo-dark.nvim',
+  -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
   'https://github.com/itsthomashere/grace.nvim',
   'https://github.com/Oniup/ignite.nvim',
   'https://github.com/deparr/tairiki.nvim',
-  'https://github.com/datsfilipe/gruvbox.nvim',
   'https://github.com/metalelf0/kintsugi-nvim',
-  'https://github.com/AvengeMedia/base46',
+  -- 'https://github.com/AvengeMedia/base46',
   'https://github.com/saeeedhany/parchment.nvim',
   'https://github.com/funnyVariable/blank.nvim',
   'https://github.com/jackplus-xyz/binary.nvim',
-  'https://github.com/metalelf0/black-metal-theme-neovim',
+  -- 'https://github.com/metalelf0/black-metal-theme-neovim',
   'https://github.com/drewxs/ash.nvim',
-  'https://github.com/hendriknielaender/stardust.nvim',
   'https://github.com/amedoeyes/eyes.nvim',
   'https://github.com/mrpbennett/vault',
   'https://github.com/phha/zenburn.nvim',
   'https://github.com/StradNikw/Naysayer.nvim',
+  'https://github.com/cappyzawa/akari-nvim',
+  'https://github.com/mstcl/ivory.nvim'
 }
 
 vim.pack.add(colorschemes)
 vim.cmd.colorscheme('srcery')
+
+require('akari').setup {
+  variant = 'dawn'
+}
 
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
@@ -150,9 +155,9 @@ require('which-key').setup {
 
 }
 
-require('ibl').setup {
-  indent = { char = '▏' }
-}
+-- require('ibl').setup {
+--   indent = { char = '▏' }
+-- }
 
 vim.g.compile_mode = {
   default_command = {
@@ -228,7 +233,7 @@ require('lualine').setup()
 
 -- Treesitter
 local ts = require('nvim-treesitter')
-local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust' }
+local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust', 'd' }
 ts.install(ts_parsers)
 
 vim.api.nvim_create_autocmd('FileType', {
