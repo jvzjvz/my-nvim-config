@@ -20,7 +20,7 @@ vim.g.localleader = ' '
 vim.opt.timeoutlen = 300
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-vim.opt.cmdheight = 0
+-- vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 vim.opt.termguicolors = true
 vim.opt.expandtab = true
@@ -55,7 +55,7 @@ local colorschemes = {
   'https://github.com/rktjmp/lush.nvim', -- common dependency and for custom theme making
   'https://github.com/jvzjvz/autumn_night.nvim',
   'https://github.com/jvzjvz/srcery-vim',
-  'https://github.com/Shatur/neovim-ayu',
+  -- 'https://github.com/Shatur/neovim-ayu',
   'https://github.com/wtfox/jellybeans.nvim',
   'https://github.com/harivansh-afk/cozybox.nvim',
   -- 'https://github.com/oskarnurm/koda.nvim',
@@ -64,7 +64,7 @@ local colorschemes = {
   'https://github.com/sainnhe/gruvbox-material',
   'https://github.com/zenbones-theme/zenbones.nvim',
   -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
-  'https://github.com/itsthomashere/grace.nvim',
+  -- 'https://github.com/itsthomashere/grace.nvim',
   'https://github.com/Oniup/ignite.nvim',
   'https://github.com/deparr/tairiki.nvim',
   'https://github.com/metalelf0/kintsugi-nvim',
@@ -77,13 +77,23 @@ local colorschemes = {
   'https://github.com/amedoeyes/eyes.nvim',
   'https://github.com/mrpbennett/vault',
   'https://github.com/phha/zenburn.nvim',
-  'https://github.com/StradNikw/Naysayer.nvim',
+  -- 'https://github.com/StradNikw/Naysayer.nvim',
   'https://github.com/cappyzawa/akari-nvim',
-  'https://github.com/mstcl/ivory.nvim'
+  'https://github.com/dybdeskarphet/gruvbox-minimal.nvim',
+  'https://github.com/Aejkatappaja/sora',
+  'https://github.com/AlexvZyl/nordic.nvim',
+  -- 'https://github.com/sefidel/avalanche.nvim',
+  'https://github.com/Sly-Harvey/radium.nvim',
 }
 
 vim.pack.add(colorschemes)
-vim.cmd.colorscheme('srcery')
+
+require('gruvbox-minimal').setup {
+  -- contrast = 'high',
+  overrides = {
+    Normal = { bg = '#111111' }
+  }
+}
 
 require('akari').setup {
   variant = 'dawn'
@@ -99,6 +109,8 @@ vim.g.gruvbox_material_colors_override = {
     bg_visual = { '#3a3a3a', '239' },
 }
 
+vim.cmd.colorscheme('gruvbox-minimal')
+
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvim-tree/nvim-web-devicons',
@@ -109,7 +121,7 @@ local qol_extensions = {
   'https://github.com/nvim-telescope/telescope.nvim',
   'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
-  -- 'https://github.com/windwp/nvim-autopairs',
+  'https://github.com/windwp/nvim-autopairs',
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/folke/which-key.nvim',
 }
@@ -202,15 +214,19 @@ vim.g.compile_mode = {
     rust = 'cargo build',
   },
   focus_compilation_buffer = true,
-  auto_jump_to_first_error = true,
-  use_pseudo_terminal = true,
+  -- auto_jump_to_first_error = true,
+  -- use_diagnostics = true,
+  -- use_pseudo_terminal = true,
 }
 
-vim.keymap.set('n', '<leader>b', '<cmd>Recompile<CR>', { desc = 'Recompile' })
+vim.keymap.set('n', '<leader>r', '<cmd>Recompile<CR>', { desc = 'Recompile' })
 
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics'} )
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>dn', '<cmd>NextError<CR>', { desc = 'Next Error' })
+vim.keymap.set('n', '<leader>dp', '<cmd>PrevError<CR>', { desc = 'Previous Error' })
+
+-- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics'} )
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
 -- Telescope
 local builtin = require('telescope.builtin')
