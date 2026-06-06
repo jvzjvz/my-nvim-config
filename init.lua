@@ -35,12 +35,12 @@ vim.opt.winborder = "rounded"
 vim.opt.background = 'dark'
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = 'yes'
 vim.opt.cursorline = false
 -- vim.opt.guicursor = "n-v-c:block,i:block"
 
 vim.opt.smoothscroll = true
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.showbreak = '↪'
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -50,6 +50,7 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.showmode = false
 vim.opt.confirm = true
+vim.opt.signcolumn = 'no'
 
 local colorschemes = {
   'https://github.com/rktjmp/lush.nvim', -- common dependency and for custom theme making
@@ -124,20 +125,18 @@ local qol_extensions = {
   'https://github.com/windwp/nvim-autopairs',
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/folke/which-key.nvim',
+  -- 'https://github.com/wsdjeg/ctags.nvim',
+  -- 'https://github.com/wsdjeg/job.nvim',
 }
 vim.pack.add(qol_extensions)
-
--- vim.diagnostic.config({
---   float = { border = "rounded" },
---   virtual_text = {
---     spacing = 4,
---     prefix = "●",
---   },
--- })
 
 require('which-key').setup {
 
 }
+
+-- require('ctags').setup {
+--
+-- }
 
 -- require('ibl').setup {
 --   indent = { 
@@ -152,10 +151,21 @@ local autocomplete_level = {
   lsp = "lsp"
 };
 
-vim.g.autocomplete_level = autocomplete_level.none;
+vim.g.autocomplete_level = autocomplete_level.basic;
 
 if vim.g.autocomplete_level == autocomplete_level.lsp then
   require("lsp")
+
+  vim.diagnostic.config({
+    float = { border = "rounded" },
+    virtual_text = {
+      spacing = 4,
+      prefix = "●",
+    },
+  })
+
+  vim.opt.signcolumn = 'yes'
+
 elseif vim.g.autocomplete_level == autocomplete_level.basic then
   vim.opt.autocomplete = true
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
