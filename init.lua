@@ -40,7 +40,7 @@ vim.opt.cursorline = false
 
 vim.opt.smoothscroll = true
 vim.opt.wrap = true
-vim.opt.showbreak = '↪'
+vim.opt.showbreak = '↪ '
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -85,6 +85,7 @@ local colorschemes = {
   'https://github.com/AlexvZyl/nordic.nvim',
   -- 'https://github.com/sefidel/avalanche.nvim',
   'https://github.com/Sly-Harvey/radium.nvim',
+  'https://github.com/xeind/nightingale.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -103,14 +104,15 @@ require('akari').setup {
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
 vim.g.gruvbox_material_colors_override = {
-    bg0 = { '#111111', '234' },
+    bg0 = { '#000000', '234' },
+    -- bg0 = { '#111111', '234' },
     bg1 = { '#1d1d1d', '235' },
     bg2 = { '#262626', '236' },
     bg3 = { '#303030', '237' },
     bg_visual = { '#3a3a3a', '239' },
 }
 
-vim.cmd.colorscheme('gruvbox-minimal')
+vim.cmd.colorscheme('gruvbox-material')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
@@ -250,7 +252,7 @@ local builtin = require('telescope.builtin')
   vim.keymap.set('n', '<leader>m', builtin.marks, { desc ='Telescope marks'})
   vim.keymap.set('n', '<leader>n', function()
   builtin.find_files { cwd = vim.fn.stdpath('config') } -- TODO: change to just open the config file, no need for telescope picker
-end, { desc = 'Find Neovim config files' })
+end, { desc = 'Telescope Neovim config files' })
 
 require('telescope').setup {
   pickers = {
