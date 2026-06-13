@@ -116,7 +116,7 @@ vim.g.gruvbox_material_colors_override = {
     bg_visual = { '#3a3a3a', '239' },
 }
 
-vim.cmd.colorscheme('gruvbox-material')
+vim.cmd.colorscheme('eyes')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
@@ -156,7 +156,7 @@ local autocomplete_level = {
   lsp = "lsp"
 };
 
-vim.g.autocomplete_level = autocomplete_level.basic;
+vim.g.autocomplete_level = autocomplete_level.none;
 
 if vim.g.autocomplete_level == autocomplete_level.lsp then
   require("lsp")
@@ -300,7 +300,7 @@ require('lualine').setup()
 
 -- Treesitter
 local ts = require('nvim-treesitter')
-local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust', 'd' }
+local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust', 'gdscript' }
 ts.install(ts_parsers)
 
 vim.api.nvim_create_autocmd('FileType', {
