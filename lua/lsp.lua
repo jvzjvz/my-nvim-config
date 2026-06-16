@@ -20,7 +20,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 cmp.setup({
   window = {
     completion = cmp.config.window.bordered(),
-    documentation = cmp.config.disable,
+    documentation = false,
   },
 
   completion = {

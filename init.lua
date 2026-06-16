@@ -77,32 +77,19 @@ local colorschemes = {
   'https://github.com/Sly-Harvey/radium.nvim',
   'https://github.com/xeind/nightingale.nvim',
   'https://github.com/Mofiqul/vscode.nvim',
-  'https://github.com/Love-Pengy/lillilac.nvim',
   'https://github.com/EdenEast/nightfox.nvim',
   'https://github.com/marekh19/meowsoot.nvim',
   'https://github.com/kotsuban/nekomi.nvim',
-  'https://github.com/wjlroe/brutalist.vim',
+  -- 'https://github.com/wjlroe/brutalist.vim',
   'https://github.com/danishprakash/vim-yami',
-  'https://github.com/rjmacarthy/oscura-vscode.nvim',
   'https://github.com/ATTron/bebop.nvim',
   'https://github.com/mnabila/ayune.nvim',
-  'https://github.com/bergholmm/cursor-dark.nvim',
-  'https://github.com/m-mead/eddy.nvim',
+  'https://github.com/razcoen/fleet.nvim',
   'https://github.com/ankushbhagats/pastel.nvim',
-  -- 'https://github.com/matveyt/vim-modest',
-  -- 'https://github.com/yonatanperel/lake-dweller.nvim',
-  -- 'https://github.com/felipeagc/fleet-theme-nvim',
-  -- 'https://github.com/idr4n/github-monochrome.nvim',
-  'https://github.com/mikesmithgh/gruvsquirrel.nvim',
-  -- 'https://github.com/razcoen/fleet.nvim',
-  -- 'https://github.com/smallwat3r/vim-simplicity',
-  -- 'https://github.com/backdround/melting',
-  -- 'https://github.com/lighthaus-theme/vim-lighthaus',
-  -- 'https://github.com/igorepst/hemisu.nvim',
-  -- 'https://github.com/lfenzo/fusion.nvim',
-  -- 'https://github.com/taDachs/kit.vim',
-  -- 'https://github.com/kooparse/vim-color-desert-night',
-  -- 'https://github.com/niuez/testify.vim',
+  'https://github.com/jacoborus/tender.vim',
+  'https://github.com/catppuccin/nvim',
+  'https://github.com/rebelot/kanagawa.nvim',
+  'https://github.com/sefidel/avalanche.nvim',
   -- 'https://github.com/Dich0tomy/oxocarbon-lua.nvim',
   -- 'https://github.com/kanenorman/gruvbox-darker.nvim',
   -- 'https://github.com/chama-chomo/grail',
@@ -111,10 +98,50 @@ local colorschemes = {
   -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
   -- 'https://github.com/itsthomashere/grace.nvim',
   -- 'https://github.com/AvengeMedia/base46',
-  -- 'https://github.com/sefidel/avalanche.nvim',
 }
 
 vim.pack.add(colorschemes)
+
+require('kanagawa').setup {
+  colors = {
+    palette = {
+      sumiInk0 = '#111111',
+      sumiInk1 = '#111111',
+      sumiInk2 = '#111111',
+      sumiInk3 = '#111111',
+    },
+    theme = {
+      all = {
+        ui = {
+          bg_gutter = 'none'
+        }
+      }
+    }
+  }
+}
+
+require('catppuccin').setup {
+  color_overrides = {
+    frappe = {
+      base = '#0C0D12',
+      mantle = '#0C0D12',
+      crust = '#0C0D12',
+    }
+  }
+}
+
+require('everforest').setup {
+  background = 'hard',
+  ui_contrast = 'high',
+  colours_override = function(palette)
+    palette.bg0 = '#111111'
+    palette.bg1 = '#2d353b'
+    palette.bg2 = '#2d353b'
+    palette.bg3 = '#2d353b'
+    palette.bg4 = '#2d353b'
+    palette.bg5 = '#2d353b'
+  end
+}
 
 local nekomi = require('nekomi')
 
@@ -164,7 +191,7 @@ vim.g.gruvbox_material_colors_override = {
     bg_visual = { '#3a3a3a', '239' },
 }
 
-vim.cmd.colorscheme('eyes')
+vim.cmd.colorscheme('everforest')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
