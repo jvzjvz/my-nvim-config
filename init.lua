@@ -102,12 +102,11 @@ local colorschemes = {
 
 vim.pack.add(colorschemes)
 
-vim.g.gruvbox_termcolors = 16
-
 require('onedark').setup {
   style = 'darker',
   highlights = {
-    Normal = { bg = '#000000'},
+    -- Normal = { bg = '#000000'},
+    -- Normal = { bg = '#111111'},
     -- bg1 = '#000000',
     -- bg2 = '#000000',
     -- bg3 = '#000000',
@@ -204,7 +203,7 @@ vim.g.gruvbox_material_colors_override = {
     bg_visual = { '#3a3a3a', '239' },
 }
 
-vim.cmd.colorscheme('onedark')
+vim.cmd.colorscheme('kanagawa')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
@@ -223,13 +222,7 @@ local qol_extensions = {
 }
 vim.pack.add(qol_extensions)
 
-require('which-key').setup {
-
-}
-
--- require('ctags').setup {
---
--- }
+require('which-key').setup {}
 
 -- require('ibl').setup {
 --   indent = { 
@@ -244,7 +237,7 @@ local autocomplete_level = {
   lsp = "lsp"
 };
 
-vim.g.autocomplete_level = autocomplete_level.none;
+vim.g.autocomplete_level = autocomplete_level.lsp;
 
 if vim.g.autocomplete_level == autocomplete_level.lsp then
   require("lsp")
@@ -286,25 +279,6 @@ elseif vim.g.autocomplete_level == autocomplete_level.basic then
     end
   end, { expr = true })
 end
-
--- vim.api.nvim_create_user_command("ToggleLsp", function()
---   vim.g.enable_lsp = not vim.g.enable_lsp
---
---   if vim.g.enable_lsp then
---     package.loaded["lsp"] = nil
---     require("lsp")
---     print("LSP enabled")
---   else
---     for _, client in ipairs(vim.lsp.get_clients()) do
---       client:stop()
---     end
---
---     print("LSP disabled")
---   end
--- end, {})
-
--- vim.keymap.set("n", "<leader>tl", "<cmd>ToggleLsp<CR>")
-
 
 vim.g.compile_mode = {
   default_command = {
