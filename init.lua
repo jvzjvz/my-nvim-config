@@ -98,6 +98,7 @@ local colorschemes = {
   'https://github.com/drewtempelmeyer/palenight.vim',
   'https://github.com/Shatur/neovim-ayu',
   'https://github.com/vossenwout/guts.nvim',
+  'https://github.com/VyomJain6904/charcoal.nvim',
   -- 'https://github.com/Dich0tomy/oxocarbon-lua.nvim',
   -- 'https://github.com/chama-chomo/grail',
 
@@ -216,7 +217,7 @@ require('nordic').setup {
   end
 }
 
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('charcoal')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
