@@ -217,7 +217,7 @@ require('nordic').setup {
   end
 }
 
-vim.cmd.colorscheme('charcoal')
+vim.cmd.colorscheme('kanagawa')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
@@ -233,6 +233,7 @@ local qol_extensions = {
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/folke/which-key.nvim',
   'https://github.com/xiyaowong/transparent.nvim',
+  'https://github.com/lewis6991/gitsigns.nvim',
 }
 vim.pack.add(qol_extensions)
 
