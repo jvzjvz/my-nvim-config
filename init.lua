@@ -101,7 +101,7 @@ local colorschemes = {
   -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
   -- 'https://github.com/itsthomashere/grace.nvim',
   -- 'https://github.com/AvengeMedia/base46',
-  'https://github.com/kanenorman/gruvbox-darker.nvim',
+  'https://github.com/jvzjvz/gruvbox-darker.nvim',
   'https://github.com/jaredgorski/Mies.vim',
   'https://github.com/pebeto/dookie.nvim',
 }
