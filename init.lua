@@ -89,15 +89,10 @@ local colorschemes = {
   -- 'https://github.com/wjlroe/brutalist.vim',
   'https://github.com/danishprakash/vim-yami',
   'https://github.com/ATTron/bebop.nvim',
-  'https://github.com/mnabila/ayune.nvim',
-  'https://github.com/felipeagc/fleet-theme-nvim',
   'https://github.com/ankushbhagats/pastel.nvim',
   'https://github.com/catppuccin/nvim',
   'https://github.com/rebelot/kanagawa.nvim',
-  'https://github.com/navarasu/onedark.nvim',
   'https://github.com/drewtempelmeyer/palenight.vim',
-  'https://github.com/Shatur/neovim-ayu',
-  'https://github.com/vossenwout/guts.nvim',
   'https://github.com/VyomJain6904/charcoal.nvim',
   -- 'https://github.com/Dich0tomy/oxocarbon-lua.nvim',
   -- 'https://github.com/chama-chomo/grail',
@@ -106,21 +101,12 @@ local colorschemes = {
   -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
   -- 'https://github.com/itsthomashere/grace.nvim',
   -- 'https://github.com/AvengeMedia/base46',
+  'https://github.com/kanenorman/gruvbox-darker.nvim',
+  'https://github.com/jaredgorski/Mies.vim',
+  'https://github.com/pebeto/dookie.nvim',
 }
 
 vim.pack.add(colorschemes)
-
-require('onedark').setup {
-  style = 'darker',
-  highlights = {
-    -- Normal = { bg = '#000000'},
-    -- Normal = { bg = '#111111'},
-    -- bg1 = '#000000',
-    -- bg2 = '#000000',
-    -- bg3 = '#000000',
-    -- bg4 = '#000000',
-  }
-}
 
 require('kanagawa').setup {
   colors = {
@@ -185,9 +171,6 @@ require('binary').setup {
   -- }
 }
 
-require('bebop').setup {
-  preset = 'faye'
-}
 
 require('gruvbox-minimal').setup {
   -- contrast = 'high',
@@ -199,6 +182,23 @@ require('gruvbox-minimal').setup {
 require('akari').setup {
   variant = 'dawn'
 }
+
+require('bebop').setup {
+  preset = 'faye'
+}
+
+-- require('onedark').setup {
+--   style = 'darker',
+--   highlights = {
+--     -- Normal = { bg = '#000000'},
+--     -- Normal = { bg = '#111111'},
+--     -- bg1 = '#000000',
+--     -- bg2 = '#000000',
+--     -- bg3 = '#000000',
+--     -- bg4 = '#000000',
+--   }
+-- }
+--
 
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
