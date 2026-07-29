@@ -102,8 +102,12 @@ local colorschemes = {
   -- 'https://github.com/itsthomashere/grace.nvim',
   -- 'https://github.com/AvengeMedia/base46',
   'https://github.com/jvzjvz/gruvbox-darker.nvim',
-  'https://github.com/jaredgorski/Mies.vim',
-  'https://github.com/pebeto/dookie.nvim',
+  'https://github.com/oonamo/ef-themes.nvim',
+  'https://github.com/thallada/farout.nvim',
+  -- 'https://github.com/Verf/deepwhite.nvim',
+  'https://github.com/embark-theme/vim',
+  'https://github.com/oskarnurm/koda.nvim',
+  'https://github.com/uhs-robert/oasis.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -183,9 +187,9 @@ require('akari').setup {
   variant = 'dawn'
 }
 
-require('bebop').setup {
-  preset = 'faye'
-}
+-- require('bebop').setup {
+--   preset = 'faye'
+-- }
 
 -- require('onedark').setup {
 --   style = 'darker',
@@ -217,7 +221,7 @@ require('nordic').setup {
   end
 }
 
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('ef-bio')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
