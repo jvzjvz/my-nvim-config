@@ -221,7 +221,7 @@ require('nordic').setup {
   end
 }
 
-vim.cmd.colorscheme('ef-bio')
+vim.cmd.colorscheme('everforest')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
