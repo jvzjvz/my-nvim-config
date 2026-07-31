@@ -68,13 +68,13 @@ local colorschemes = {
   -- {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
   'https://github.com/sainnhe/gruvbox-material',
   'https://github.com/zenbones-theme/zenbones.nvim',
-  'https://github.com/Oniup/ignite.nvim',
+  -- 'https://github.com/Oniup/ignite.nvim',
   'https://github.com/deparr/tairiki.nvim',
   'https://github.com/metalelf0/kintsugi-nvim',
   'https://github.com/saeeedhany/parchment.nvim',
   'https://github.com/jackplus-xyz/binary.nvim',
   'https://github.com/drewxs/ash.nvim',
-  'https://github.com/amedoeyes/eyes.nvim',
+  -- 'https://github.com/amedoeyes/eyes.nvim',
   'https://github.com/mrpbennett/vault',
   'https://github.com/phha/zenburn.nvim',
   'https://github.com/cappyzawa/akari-nvim',
@@ -84,12 +84,10 @@ local colorschemes = {
   'https://github.com/xeind/nightingale.nvim',
   'https://github.com/Mofiqul/vscode.nvim',
   'https://github.com/EdenEast/nightfox.nvim',
-  'https://github.com/marekh19/meowsoot.nvim',
-  'https://github.com/kotsuban/nekomi.nvim',
+  -- 'https://github.com/marekh19/meowsoot.nvim',
+  -- 'https://github.com/kotsuban/nekomi.nvim',
   -- 'https://github.com/wjlroe/brutalist.vim',
-  'https://github.com/danishprakash/vim-yami',
   'https://github.com/ATTron/bebop.nvim',
-  'https://github.com/ankushbhagats/pastel.nvim',
   'https://github.com/catppuccin/nvim',
   'https://github.com/rebelot/kanagawa.nvim',
   'https://github.com/drewtempelmeyer/palenight.vim',
@@ -97,7 +95,7 @@ local colorschemes = {
   -- 'https://github.com/Dich0tomy/oxocarbon-lua.nvim',
   -- 'https://github.com/chama-chomo/grail',
 
-  -- 'https://github.com/metalelf0/black-metal-theme-neovim',
+  'https://github.com/metalelf0/black-metal-theme-neovim',
   -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
   -- 'https://github.com/itsthomashere/grace.nvim',
   -- 'https://github.com/AvengeMedia/base46',
@@ -108,9 +106,116 @@ local colorschemes = {
   'https://github.com/embark-theme/vim',
   'https://github.com/oskarnurm/koda.nvim',
   'https://github.com/uhs-robert/oasis.nvim',
+  'https://github.com/sedgholm/terracotta.nvim',
+  'https://github.com/aidyak/tokusa',
+  'https://github.com/jpwol/thorn.nvim',
+  'https://github.com/YajanaRao/forestflower',
+  'https://github.com/sample-usr/rakis.nvim',
+  -- 'https://github.com/shrikecode/kyotonight.vim',
+  'https://github.com/kyzabuilds/xeno.nvim',
+  'https://github.com/saran13raj/wheat-fox.nvim',
+  'https://github.com/Nyvyme/naysayer.nvim',
 }
 
 vim.pack.add(colorschemes)
+
+-- require('wheat-fox').setup {
+--     styles = {
+--         types = {
+--             -- fg = '#2ee2fa'
+--             -- fg = '#6394bf'
+--             -- fg = '#35b3c4'
+--         }
+--     }
+-- }
+
+local xeno = require('xeno')
+
+xeno.color('caramel', '#E6A15C')
+xeno.color('cinnamon', '#CD6A53')
+xeno.color('cream', '#F1E3D3')
+xeno.color('latte', '#D8B395')
+xeno.color('mocha', '#A08066')
+xeno.color('matcha', '#A3B18A')
+xeno.color('chai', '#E9C46A')
+
+xeno.theme('xeno-latte-express', {
+  background = '#1A120B',
+  accent = '#EADBC8',
+  foreground = '#F5EFE6',
+  properties = {
+    contrast = 0.12,
+    chroma = 0.05,
+    lightness = 0.04,
+    variation = 0.15,
+  },
+  highlights = {
+    editor = {
+      Normal = { fg = '@foreground.200' },
+      LineNr = { fg = '@background.500' },
+      CursorLineNr = { fg = '@accent.200', bold = true },
+      Visual = { bg = xeno.opaque('@accent.500', 0.18) },
+      CursorLine = { bg = xeno.opaque('@background.600', 0.05) },
+      MatchParen = { fg = '@caramel.200', bold = true, underline = true },
+    },
+    syntax = {
+      Comment = { fg = '@foreground.400', italic = true },
+      Keyword = { fg = '@caramel.300' },
+      Conditional = { fg = '@cinnamon.300' },
+      Function = { fg = '@cream.200' },
+      Type = { fg = '@matcha.300' },
+      String = { fg = '@latte.300' },
+      Number = { fg = '@chai.200' },
+      Boolean = { fg = '@chai.200' },
+      Variable = { fg = '@foreground.200' },
+      Property = { fg = '@mocha.200' },
+      ['@keyword'] = { link = 'Keyword' },
+      ['@keyword.function'] = { link = 'Keyword' },
+      ['@keyword.return'] = { link = 'Conditional' },
+      ['@keyword.conditional'] = { link = 'Conditional' },
+      ['@keyword.repeat'] = { link = 'Conditional' },
+      ['@keyword.operator'] = { link = 'Operator' },
+      ['@keyword.import'] = { fg = '@cinnamon.200' },
+      ['@function'] = { link = 'Function' },
+      ['@function.builtin'] = { fg = '@accent.200' },
+      ['@function.method'] = { link = 'Function' },
+      ['@function.macro'] = { fg = '@caramel.200' },
+      ['@type'] = { link = 'Type' },
+      ['@type.builtin'] = { fg = '@matcha.200' },
+      ['@type.definition'] = { link = 'Type' },
+      ['@string'] = { link = 'String' },
+      ['@string.regex'] = { fg = '@cinnamon.200' },
+      ['@string.escape'] = { fg = '@chai.200' },
+      ['@number'] = { link = 'Number' },
+      ['@boolean'] = { link = 'Boolean' },
+      ['@variable'] = { link = 'Variable' },
+      ['@variable.builtin'] = { fg = '@cinnamon.200' },
+      ['@variable.parameter'] = { fg = '@foreground.100' },
+      ['@property'] = { link = 'Property' },
+      ['@operator'] = { link = 'Operator' },
+      ['@punctuation'] = { link = 'Punctuation' },
+      ['@punctuation.bracket'] = { link = 'Punctuation' },
+      ['@punctuation.delimiter'] = { link = 'Punctuation' },
+      ['@lsp.type.variable'] = { link = '@variable' },
+      ['@lsp.type.property'] = { link = '@property' },
+      ['@lsp.type.function'] = { link = '@function' },
+      ['@lsp.type.method'] = { link = '@function.method' },
+      ['@lsp.type.type'] = { link = '@type' },
+      ['@lsp.type.keyword'] = { link = '@keyword' },
+      ['@lsp.type.parameter'] = { link = '@variable.parameter' },
+    },
+  },
+})
+
+xeno.theme('xeno-sapphire', {
+  background = '#1a2332',
+  accent = '#4d8fd6',
+  properties = {
+    variation = 0.60,
+    lightness = -0.10,
+    chroma = 0.30,
+  },
+})
 
 require('kanagawa').setup {
   colors = {
@@ -150,22 +255,6 @@ require('everforest').setup {
     palette.bg3 = '#2d353b'
     palette.bg4 = '#2d353b'
     palette.bg5 = '#2d353b'
-  end
-}
-
-local nekomi = require('nekomi')
-
-nekomi.setup {
-  accent = nekomi.colors.blue,
-  -- colors = {
-  --   base = '#000000',
-    -- mantle = '#000000'
-  -- }
-
-  highlight = function(self)
-    return {
-      Normal = { bg = '#000000' },
-    }
   end
 }
 
