@@ -9,13 +9,13 @@ require("xeno").setup({
   },
   transparent = false,
   _custom_colors = {
-    chai = "#E9C46A",
-    cinnamon = "#CD6A53",
-    latte = "#D8B395",
-    mocha = "#A08066",
     caramel = "#E6A15C",
+    cinnamon = "#CD6A53",
+    mocha = "#A08066",
     cream = "#F1E3D3",
-    matcha = "#A3B18A"
+    matcha = "#A3B18A",
+    latte = "#D8B395",
+    chai = "#E9C46A"
   },
 })
 vim.g.colors_name = "xeno-sapphire"

@@ -113,7 +113,7 @@ local colorschemes = {
   'https://github.com/sample-usr/rakis.nvim',
   -- 'https://github.com/shrikecode/kyotonight.vim',
   'https://github.com/kyzabuilds/xeno.nvim',
-  'https://github.com/saran13raj/wheat-fox.nvim',
+  -- 'https://github.com/saran13raj/wheat-fox.nvim',
   'https://github.com/Nyvyme/naysayer.nvim',
 }
 
@@ -310,7 +310,6 @@ require('nordic').setup {
   end
 }
 
-vim.cmd.colorscheme('everforest')
 
 local qol_extensions = {
   'https://github.com/nvim-lua/plenary.nvim',
@@ -551,3 +550,5 @@ vim.keymap.set('n', 'A', function()
   end
   return 'A'
 end, { expr = true })
+
+vim.cmd.colorscheme('xeno-latte-express')

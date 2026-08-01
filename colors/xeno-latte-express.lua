@@ -10,65 +10,19 @@ require("xeno").setup({
   transparent = false,
   foreground = "#F5EFE6",
   _custom_colors = {
-    chai = "#E9C46A",
-    cinnamon = "#CD6A53",
-    latte = "#D8B395",
-    mocha = "#A08066",
     caramel = "#E6A15C",
+    cinnamon = "#CD6A53",
+    mocha = "#A08066",
     cream = "#F1E3D3",
-    matcha = "#A3B18A"
+    matcha = "#A3B18A",
+    latte = "#D8B395",
+    chai = "#E9C46A"
   },
   highlights = {
-    editor = {
-      Visual = {
-        bg = {
-          opacity = 0.18,
-          fg = "@accent.500",
-          __xeno_opaque = true
-        }
-      },
-      CursorLine = {
-        bg = {
-          opacity = 0.05,
-          fg = "@background.600",
-          __xeno_opaque = true
-        }
-      },
-      LineNr = {
-        fg = "@background.500"
-      },
-      MatchParen = {
-        bold = true,
-        fg = "@caramel.200",
-        underline = true
-      },
-      CursorLineNr = {
-        fg = "@accent.200",
-        bold = true
-      },
-      Normal = {
-        fg = "@foreground.200"
-      }
-    },
     syntax = {
-      ["@lsp.type.function"] = {
-        link = "@function"
-      },
-      ["@lsp.type.method"] = {
-        link = "@function.method"
-      },
-      ["@lsp.type.type"] = {
-        link = "@type"
-      },
-      ["@lsp.type.keyword"] = {
-        link = "@keyword"
-      },
-      ["@lsp.type.parameter"] = {
-        link = "@variable.parameter"
-      },
       Comment = {
-        fg = "@foreground.400",
-        italic = true
+        italic = true,
+        fg = "@foreground.400"
       },
       Keyword = {
         fg = "@caramel.300"
@@ -163,26 +117,72 @@ require("xeno").setup({
       ["@variable.parameter"] = {
         fg = "@foreground.100"
       },
-      ["@property"] = {
-        link = "Property"
+      ["@lsp.type.method"] = {
+        link = "@function.method"
       },
-      ["@operator"] = {
-        link = "Operator"
+      ["@lsp.type.type"] = {
+        link = "@type"
       },
-      ["@punctuation"] = {
+      ["@lsp.type.keyword"] = {
+        link = "@keyword"
+      },
+      ["@lsp.type.parameter"] = {
+        link = "@variable.parameter"
+      },
+      ["@lsp.type.function"] = {
+        link = "@function"
+      },
+      ["@lsp.type.property"] = {
+        link = "@property"
+      },
+      ["@lsp.type.variable"] = {
+        link = "@variable"
+      },
+      ["@punctuation.delimiter"] = {
         link = "Punctuation"
       },
       ["@punctuation.bracket"] = {
         link = "Punctuation"
       },
-      ["@punctuation.delimiter"] = {
+      ["@punctuation"] = {
         link = "Punctuation"
       },
-      ["@lsp.type.variable"] = {
-        link = "@variable"
+      ["@operator"] = {
+        link = "Operator"
       },
-      ["@lsp.type.property"] = {
-        link = "@property"
+      ["@property"] = {
+        link = "Property"
+      }
+    },
+    editor = {
+      MatchParen = {
+        fg = "@caramel.200",
+        underline = true,
+        bold = true
+      },
+      CursorLine = {
+        bg = {
+          fg = "@background.600",
+          __xeno_opaque = true,
+          opacity = 0.05
+        }
+      },
+      Normal = {
+        fg = "@foreground.200"
+      },
+      CursorLineNr = {
+        bold = true,
+        fg = "@accent.200"
+      },
+      Visual = {
+        bg = {
+          fg = "@accent.500",
+          __xeno_opaque = true,
+          opacity = 0.18
+        }
+      },
+      LineNr = {
+        fg = "@background.500"
       }
     }
   },
