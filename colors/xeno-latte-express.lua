@@ -10,40 +10,89 @@ require("xeno").setup({
   transparent = false,
   foreground = "#F5EFE6",
   _custom_colors = {
-    caramel = "#E6A15C",
+    chai = "#E9C46A",
     cinnamon = "#CD6A53",
-    mocha = "#A08066",
-    cream = "#F1E3D3",
-    matcha = "#A3B18A",
     latte = "#D8B395",
-    chai = "#E9C46A"
+    mocha = "#A08066",
+    caramel = "#E6A15C",
+    cream = "#F1E3D3",
+    matcha = "#A3B18A"
   },
   highlights = {
+    editor = {
+      Visual = {
+        bg = {
+          opacity = 0.18,
+          __xeno_opaque = true,
+          fg = "@accent.500"
+        }
+      },
+      CursorLine = {
+        bg = {
+          opacity = 0.05,
+          __xeno_opaque = true,
+          fg = "@background.600"
+        }
+      },
+      LineNr = {
+        fg = "@background.500"
+      },
+      MatchParen = {
+        bold = true,
+        fg = "@caramel.200",
+        underline = true
+      },
+      CursorLineNr = {
+        fg = "@accent.200",
+        bold = true
+      },
+      Normal = {
+        fg = "@foreground.200"
+      }
+    },
     syntax = {
       Comment = {
-        italic = true,
-        fg = "@foreground.400"
+        fg = "@foreground.400",
+        italic = true
       },
       Keyword = {
         fg = "@caramel.300"
       },
+      ["@lsp.type.parameter"] = {
+        link = "@variable.parameter"
+      },
       Conditional = {
         fg = "@cinnamon.300"
+      },
+      ["@punctuation.bracket"] = {
+        link = "Punctuation"
       },
       Function = {
         fg = "@cream.200"
       },
+      ["@keyword.operator"] = {
+        link = "Operator"
+      },
       Type = {
         fg = "@matcha.300"
+      },
+      ["@keyword.repeat"] = {
+        link = "Conditional"
       },
       String = {
         fg = "@latte.300"
       },
+      ["@variable.builtin"] = {
+        fg = "@cinnamon.200"
+      },
       Number = {
         fg = "@chai.200"
       },
-      Boolean = {
-        fg = "@chai.200"
+      ["@operator"] = {
+        link = "Operator"
+      },
+      ["@property"] = {
+        link = "Property"
       },
       Variable = {
         fg = "@foreground.200"
@@ -51,26 +100,38 @@ require("xeno").setup({
       Property = {
         fg = "@mocha.200"
       },
+      ["@variable"] = {
+        link = "Variable"
+      },
       ["@keyword"] = {
         link = "Keyword"
       },
-      ["@keyword.function"] = {
-        link = "Keyword"
+      ["@punctuation.delimiter"] = {
+        link = "Punctuation"
+      },
+      ["@lsp.type.variable"] = {
+        link = "@variable"
       },
       ["@keyword.return"] = {
         link = "Conditional"
       },
-      ["@keyword.conditional"] = {
-        link = "Conditional"
+      ["@lsp.type.function"] = {
+        link = "@function"
       },
-      ["@keyword.repeat"] = {
-        link = "Conditional"
+      ["@lsp.type.method"] = {
+        link = "@function.method"
       },
-      ["@keyword.operator"] = {
-        link = "Operator"
+      ["@lsp.type.type"] = {
+        link = "@type"
+      },
+      ["@lsp.type.keyword"] = {
+        link = "@keyword"
       },
       ["@keyword.import"] = {
         fg = "@cinnamon.200"
+      },
+      ["@variable.parameter"] = {
+        fg = "@foreground.100"
       },
       ["@function"] = {
         link = "Function"
@@ -90,6 +151,9 @@ require("xeno").setup({
       ["@type.builtin"] = {
         fg = "@matcha.200"
       },
+      ["@punctuation"] = {
+        link = "Punctuation"
+      },
       ["@type.definition"] = {
         link = "Type"
       },
@@ -108,81 +172,17 @@ require("xeno").setup({
       ["@boolean"] = {
         link = "Boolean"
       },
-      ["@variable"] = {
-        link = "Variable"
-      },
-      ["@variable.builtin"] = {
-        fg = "@cinnamon.200"
-      },
-      ["@variable.parameter"] = {
-        fg = "@foreground.100"
-      },
-      ["@lsp.type.method"] = {
-        link = "@function.method"
-      },
-      ["@lsp.type.type"] = {
-        link = "@type"
-      },
-      ["@lsp.type.keyword"] = {
-        link = "@keyword"
-      },
-      ["@lsp.type.parameter"] = {
-        link = "@variable.parameter"
-      },
-      ["@lsp.type.function"] = {
-        link = "@function"
+      Boolean = {
+        fg = "@chai.200"
       },
       ["@lsp.type.property"] = {
         link = "@property"
       },
-      ["@lsp.type.variable"] = {
-        link = "@variable"
+      ["@keyword.function"] = {
+        link = "Keyword"
       },
-      ["@punctuation.delimiter"] = {
-        link = "Punctuation"
-      },
-      ["@punctuation.bracket"] = {
-        link = "Punctuation"
-      },
-      ["@punctuation"] = {
-        link = "Punctuation"
-      },
-      ["@operator"] = {
-        link = "Operator"
-      },
-      ["@property"] = {
-        link = "Property"
-      }
-    },
-    editor = {
-      MatchParen = {
-        fg = "@caramel.200",
-        underline = true,
-        bold = true
-      },
-      CursorLine = {
-        bg = {
-          fg = "@background.600",
-          __xeno_opaque = true,
-          opacity = 0.05
-        }
-      },
-      Normal = {
-        fg = "@foreground.200"
-      },
-      CursorLineNr = {
-        bold = true,
-        fg = "@accent.200"
-      },
-      Visual = {
-        bg = {
-          fg = "@accent.500",
-          __xeno_opaque = true,
-          opacity = 0.18
-        }
-      },
-      LineNr = {
-        fg = "@background.500"
+      ["@keyword.conditional"] = {
+        link = "Conditional"
       }
     }
   },
