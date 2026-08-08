@@ -65,6 +65,7 @@ local colorschemes = {
   'https://github.com/Nyvyme/naysayer.nvim',
   'https://github.com/ajdm-jakiur/fleury.nvim',
   'https://github.com/WTFox/luna.nvim',
+  'https://github.com/folke/tokyonight.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -250,6 +251,6 @@ require('nordic').setup {
   end
 }
 
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('fleury')
 
 return C
