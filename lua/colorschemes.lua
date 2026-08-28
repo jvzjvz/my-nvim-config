@@ -48,7 +48,6 @@ local colorschemes = {
   -- 'https://github.com/itsthomashere/grace.nvim',
   -- 'https://github.com/AvengeMedia/base46',
   'https://github.com/jvzjvz/gruvbox-darker.nvim',
-  'https://github.com/oonamo/ef-themes.nvim',
   'https://github.com/thallada/farout.nvim',
   -- 'https://github.com/Verf/deepwhite.nvim',
   'https://github.com/embark-theme/vim',
@@ -66,6 +65,8 @@ local colorschemes = {
   'https://github.com/ajdm-jakiur/fleury.nvim',
   'https://github.com/WTFox/luna.nvim',
   'https://github.com/folke/tokyonight.nvim',
+  -- 'https://github.com/oonamo/ef-themes.nvim',
+  'https://github.com/jvzjvz/zephyr-nvim',
 }
 
 vim.pack.add(colorschemes)

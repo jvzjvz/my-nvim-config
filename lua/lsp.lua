@@ -78,6 +78,7 @@ vim.lsp.config('clangd', {
     'clangd',
     '--compile-commands-dir=build',
     '--background-index',
+    '--query-driver=C:/ProgramData/mingw64/mingw64/bin/gcc.exe'
   },
 })
 
