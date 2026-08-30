@@ -10,6 +10,7 @@ local colorschemes = {
   },
   'https://github.com/jvzjvz/autumn_night.nvim',
   'https://github.com/jvzjvz/srcery-vim',
+  'https://github.com/jvzjvz/gruvbox-darker.nvim',
   'https://github.com/wtfox/jellybeans.nvim',
   'https://github.com/harivansh-afk/cozybox.nvim',
   'https://github.com/neanias/everforest-nvim',
@@ -35,7 +36,7 @@ local colorschemes = {
   -- 'https://github.com/marekh19/meowsoot.nvim',
   -- 'https://github.com/kotsuban/nekomi.nvim',
   -- 'https://github.com/wjlroe/brutalist.vim',
-  'https://github.com/ATTron/bebop.nvim',
+  -- 'https://github.com/ATTron/bebop.nvim',
   'https://github.com/catppuccin/nvim',
   'https://github.com/rebelot/kanagawa.nvim',
   'https://github.com/drewtempelmeyer/palenight.vim',
@@ -47,11 +48,10 @@ local colorschemes = {
   -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
   -- 'https://github.com/itsthomashere/grace.nvim',
   -- 'https://github.com/AvengeMedia/base46',
-  'https://github.com/jvzjvz/gruvbox-darker.nvim',
   'https://github.com/thallada/farout.nvim',
   -- 'https://github.com/Verf/deepwhite.nvim',
-  'https://github.com/embark-theme/vim',
-  'https://github.com/oskarnurm/koda.nvim',
+  -- 'https://github.com/embark-theme/vim',
+  -- 'https://github.com/oskarnurm/koda.nvim',
   'https://github.com/uhs-robert/oasis.nvim',
   'https://github.com/sedgholm/terracotta.nvim',
   'https://github.com/aidyak/tokusa',
@@ -67,6 +67,9 @@ local colorschemes = {
   'https://github.com/folke/tokyonight.nvim',
   -- 'https://github.com/oonamo/ef-themes.nvim',
   'https://github.com/jvzjvz/zephyr-nvim',
+  -- 'https://github.com/arturgoms/moonbow.nvim',
+  -- 'https://github.com/tomstolarczuk/rider.nvim',
+  'https://github.com/jonestristand/dune.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -252,6 +255,19 @@ require('nordic').setup {
   end
 }
 
-vim.cmd.colorscheme('fleury')
+require('thorn').setup {
+    on_highlights = function (hl, pa)
+        hl.Normal.bg = '#0C1812'
+        hl.NormalNC.bg = '#0C1812'
+        hl.SignColumn.bg = '#0C1812'
+        hl.VertSplit.fg = '#0C1812'
+        hl.VertSplit.bg = '#0C1812'
+        hl.WinSeparator.fg = pa.bg
+        hl.WinSeparator.bg = '#0C1812'
+        -- hl.WinSeparator.fg = pa.green_1
+    end
+}
+
+vim.cmd.colorscheme('thorn')
 
 return C
