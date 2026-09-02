@@ -69,7 +69,7 @@ local colorschemes = {
     'https://github.com/jvzjvz/zephyr-nvim',
     -- 'https://github.com/arturgoms/moonbow.nvim',
     -- 'https://github.com/tomstolarczuk/rider.nvim',
-    'https://github.com/jonestristand/dune.nvim',
+    'https://github.com/Shatur/neovim-ayu',
 }
 
 vim.pack.add(colorschemes)
@@ -210,64 +210,75 @@ require('binary').setup {
     }
 
 
-    require('gruvbox-minimal').setup {
-        -- contrast = 'high',
-        overrides = {
-            Normal = { bg = '#111111' }
-        }
+require('gruvbox-minimal').setup {
+-- contrast = 'high',
+overrides = {
+Normal = { bg = '#111111' }
+}
+}
+
+require('akari').setup {
+variant = 'dawn'
+}
+
+-- require('bebop').setup {
+--   preset = 'faye'
+-- }
+
+-- require('onedark').setup {
+--   style = 'darker',
+--   highlights = {
+--     -- Normal = { bg = '#000000'},
+--     -- Normal = { bg = '#111111'},
+--     -- bg1 = '#000000',
+--     -- bg2 = '#000000',
+--     -- bg3 = '#000000',
+--     -- bg4 = '#000000',
+--   }
+-- }
+--
+
+vim.g.gruvbox_material_background = 'hard'
+vim.g.gruvbox_material_float_style = 'dim'
+vim.g.gruvbox_material_colors_override = {
+-- bg0 = { '#000000', '234' },
+bg0 = { '#111111', '234' },
+bg1 = { '#1d1d1d', '235' },
+bg2 = { '#262626', '236' },
+bg3 = { '#303030', '237' },
+bg_visual = { '#3a3a3a', '239' },
+}
+
+require('nordic').setup {
+    on_palette = function (palette)
+        palette.gray0 = '#111111'
+    end
+}
+
+require('thorn').setup {
+    on_highlights = function (hl, pa)
+        hl.Normal.bg = '#0C1812'
+        hl.NormalNC.bg = '#0C1812'
+        hl.SignColumn.bg = '#0C1812'
+        hl.VertSplit.fg = '#0C1812'
+        hl.VertSplit.bg = '#0C1812'
+        hl.WinSeparator.fg = pa.bg
+        hl.WinSeparator.bg = '#0C1812'
+        -- hl.WinSeparator.fg = pa.green_1
+    end
+}
+
+local ayu = require('ayu')
+local ayu_colors = require('ayu.colors')
+ayu.setup {
+    overrides = {
+        Visual = { reverse = true },
+        Delimiter = { fg = ayu_colors.fg },
+        ['@tag.delimiter'] = { fg = ayu_colors.fg },
+        ['@punctuation'] = { fg = ayu_colors.fg },
     }
+}
 
-    require('akari').setup {
-        variant = 'dawn'
-    }
+vim.cmd.colorscheme('forestbones')
 
-    -- require('bebop').setup {
-        --   preset = 'faye'
-        -- }
-
-        -- require('onedark').setup {
-            --   style = 'darker',
-            --   highlights = {
-                --     -- Normal = { bg = '#000000'},
-                --     -- Normal = { bg = '#111111'},
-                --     -- bg1 = '#000000',
-                --     -- bg2 = '#000000',
-                --     -- bg3 = '#000000',
-                --     -- bg4 = '#000000',
-                --   }
-                -- }
-                --
-
-                vim.g.gruvbox_material_background = 'hard'
-                vim.g.gruvbox_material_float_style = 'dim'
-                vim.g.gruvbox_material_colors_override = {
-                    -- bg0 = { '#000000', '234' },
-                    bg0 = { '#111111', '234' },
-                    bg1 = { '#1d1d1d', '235' },
-                    bg2 = { '#262626', '236' },
-                    bg3 = { '#303030', '237' },
-                    bg_visual = { '#3a3a3a', '239' },
-                }
-
-                require('nordic').setup {
-                    on_palette = function (palette)
-                        palette.gray0 = '#111111'
-                    end
-                }
-
-                require('thorn').setup {
-                    on_highlights = function (hl, pa)
-                        hl.Normal.bg = '#0C1812'
-                        hl.NormalNC.bg = '#0C1812'
-                        hl.SignColumn.bg = '#0C1812'
-                        hl.VertSplit.fg = '#0C1812'
-                        hl.VertSplit.bg = '#0C1812'
-                        hl.WinSeparator.fg = pa.bg
-                        hl.WinSeparator.bg = '#0C1812'
-                        -- hl.WinSeparator.fg = pa.green_1
-                    end
-                }
-
-                vim.cmd.colorscheme('thorn')
-
-                return C
+return C
