@@ -35,11 +35,9 @@ local colorschemes = {
     'https://github.com/EdenEast/nightfox.nvim',
     -- 'https://github.com/marekh19/meowsoot.nvim',
     -- 'https://github.com/kotsuban/nekomi.nvim',
-    -- 'https://github.com/wjlroe/brutalist.vim',
     -- 'https://github.com/ATTron/bebop.nvim',
     'https://github.com/catppuccin/nvim',
     'https://github.com/rebelot/kanagawa.nvim',
-    'https://github.com/drewtempelmeyer/palenight.vim',
     'https://github.com/VyomJain6904/charcoal.nvim',
     -- 'https://github.com/Dich0tomy/oxocarbon-lua.nvim',
     -- 'https://github.com/chama-chomo/grail',
@@ -203,10 +201,13 @@ require('everforest').setup {
     end
 }
 
+local binary_yellow = "#ffb400"
+local binary_brown = "#9E8767"
+local binary_offwhite = "#C0B19B"
 require('binary').setup {
-    -- colors = {
-        --   bg = "#ffb400",
-        -- }
+    colors = {
+          bg = binary_brown,
+        }
     }
 
 
@@ -279,6 +280,6 @@ ayu.setup {
     }
 }
 
-vim.cmd.colorscheme('forestbones')
+vim.cmd.colorscheme('binary')
 
 return C
