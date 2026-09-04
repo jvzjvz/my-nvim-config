@@ -206,7 +206,7 @@ local binary_brown = "#9E8767"
 local binary_offwhite = "#C0B19B"
 require('binary').setup {
     colors = {
-          bg = binary_brown,
+          bg = binary_yellow,
         }
     }
 

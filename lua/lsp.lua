@@ -64,7 +64,8 @@ local installed_lsps = {
     'ols',
     'gopls',
     'zls',
-    'rust_analyzer'
+    'rust_analyzer',
+    'ts_ls',
     -- 'serve_d'
 }
 
