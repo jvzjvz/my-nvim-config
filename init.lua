@@ -64,222 +64,222 @@ vim.pack.add(qol_extensions)
 
 require('which-key').setup {}
 
--- require('ibl').setup {
-    --   indent = { 
-        --     char = '▏',
-        --     char = '→'
-        --   }
-        -- }
+require('ibl').setup {
+    -- indent = { 
+        -- char = '▏',
+        -- char = '→'
+    -- }
+}
 
-        local autocomplete_level = {
-            none = "none",
-            basic = "basic",
-            lsp = "lsp"
-        };
+local autocomplete_level = {
+    none = "none",
+    basic = "basic",
+    lsp = "lsp"
+};
 
-        vim.g.autocomplete_level = autocomplete_level.lsp;
+vim.g.autocomplete_level = autocomplete_level.lsp;
 
-        if vim.g.autocomplete_level == autocomplete_level.lsp then
-            require("lsp")
+if vim.g.autocomplete_level == autocomplete_level.lsp then
+    require("lsp")
 
-            vim.diagnostic.config({
-                float = { border = "rounded" },
-                virtual_text = {
-                    spacing = 4,
-                    prefix = "●",
-                },
-            })
+    vim.diagnostic.config({
+        float = { border = "rounded" },
+        virtual_text = {
+            spacing = 4,
+            prefix = "●",
+        },
+    })
 
-            vim.opt.signcolumn = 'yes'
+    vim.opt.signcolumn = 'yes'
 
-        elseif vim.g.autocomplete_level == autocomplete_level.basic then
-            vim.opt.autocomplete = true
-            vim.opt.completeopt = { "menu", "menuone", "noselect" }
-            vim.keymap.set('i', '<Tab>', function()
-                if vim.fn.pumvisible() == 1 then
-                    return '<C-n>'
-                else
-                    return '<Tab>'
-                end
-            end, { expr = true })
-
-            vim.keymap.set('i', '<S-Tab>', function()
-                if vim.fn.pumvisible() == 1 then
-                    return '<C-p>'
-                else
-                    return '<S-Tab>'
-                end
-            end, { expr = true })
-
-            vim.keymap.set('i', '<CR>', function()
-                if vim.fn.pumvisible() == 1 then
-                    return '<C-y>'
-                else
-                    return '<CR>'
-                end
-            end, { expr = true })
+elseif vim.g.autocomplete_level == autocomplete_level.basic then
+    vim.opt.autocomplete = true
+    vim.opt.completeopt = { "menu", "menuone", "noselect" }
+    vim.keymap.set('i', '<Tab>', function()
+        if vim.fn.pumvisible() == 1 then
+            return '<C-n>'
+        else
+            return '<Tab>'
         end
+    end, { expr = true })
 
-        vim.g.compile_mode = {
-            default_command = {
-                c = 'cmake --build build',
-                cpp = 'cmake --build build',
-                odin = 'odin build . -debug',
-                go = 'go build .',
-                lua = 'lovec .', -- love2d
-                zig = 'zig build',
-                rust = 'cargo build',
-            },
-            focus_compilation_buffer = true,
-            -- auto_jump_to_first_error = true,
-            -- use_diagnostics = true,
-            -- use_pseudo_terminal = true,
+    vim.keymap.set('i', '<S-Tab>', function()
+        if vim.fn.pumvisible() == 1 then
+            return '<C-p>'
+        else
+            return '<S-Tab>'
+        end
+    end, { expr = true })
+
+    vim.keymap.set('i', '<CR>', function()
+        if vim.fn.pumvisible() == 1 then
+            return '<C-y>'
+        else
+            return '<CR>'
+        end
+    end, { expr = true })
+end
+
+vim.g.compile_mode = {
+    default_command = {
+        c = 'cmake --build build',
+        cpp = 'cmake --build build',
+        odin = 'odin build . -debug',
+        go = 'go build .',
+        lua = 'lovec .', -- love2d
+        zig = 'zig build',
+        rust = 'cargo build',
+    },
+    focus_compilation_buffer = true,
+    -- auto_jump_to_first_error = true,
+    -- use_diagnostics = true,
+    -- use_pseudo_terminal = true,
+}
+
+vim.keymap.set('n', '<leader>r', '<cmd>Recompile<CR>', { desc = 'Recompile' })
+
+vim.keymap.set('n', '<leader>dn', '<cmd>NextError<CR>', { desc = 'Next Error' })
+vim.keymap.set('n', '<leader>dp', '<cmd>PrevError<CR>', { desc = 'Previous Error' })
+
+-- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics'} )
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader><Space>', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>c', builtin.colorscheme, { desc = 'Telescope colorscheme' })
+vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, { desc = 'Telescope Current Buffer Symbols' })
+vim.keymap.set('n', '<leader>d', builtin.diagnostics, { desc = 'Telescope Diagnostics' })
+-- vim.keymap.set('n', '<leader>S', builtin.tags, { desc = 'Telescope all tags' })
+-- vim.keymap.set('n', '<leader>s', builtin.current_buffer_tags, { desc = 'Telescope buffer tags' })
+vim.keymap.set('n', '<leader>m', builtin.marks, { desc ='Telescope marks'})
+vim.keymap.set('n', '<leader>n', function()
+    builtin.find_files { cwd = vim.fn.stdpath('config') } -- TODO: change to just open the config file, no need for telescope picker
+end, { desc = 'Telescope Neovim config files' })
+
+require('telescope').setup {
+    pickers = {
+        colorscheme = {
+            theme = 'dropdown',
+            enable_preview = true,
+        },
+        buffers = {
+            theme = 'dropdown',
+        },
+        find_files = {
+            theme = 'dropdown',
+        },
+        marks = { -- maybe just remove
+            theme = 'dropdown',
+        },
+    },
+}
+
+-- Oil
+require('oil').setup {
+    default_file_explorer = true,
+    view_options = {
+        show_hidden = true,
+    },
+}
+
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Oil - Open parent directory' })
+-- vim.keymap.set('n', '-', function()
+    --   require('oil').open_float()
+    -- end, {
+    --   desc = 'Oil float'
+    -- })
+
+
+    -- require('nvim-autopairs').setup {}
+
+    -- require('marks').setup {}
+
+    require('lualine').setup {
+        -- sections = {
+            --
+            -- }
         }
 
-        vim.keymap.set('n', '<leader>r', '<cmd>Recompile<CR>', { desc = 'Recompile' })
+        -- Treesitter
+        local ts = require('nvim-treesitter')
+        local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust', 'gdscript' }
+        ts.install(ts_parsers)
 
-        vim.keymap.set('n', '<leader>dn', '<cmd>NextError<CR>', { desc = 'Next Error' })
-        vim.keymap.set('n', '<leader>dp', '<cmd>PrevError<CR>', { desc = 'Previous Error' })
+        vim.api.nvim_create_autocmd('FileType', {
+            callback = function(args)
+                local filetype = args.match
+                local lang = vim.treesitter.language.get_lang(filetype)
 
-        -- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics'} )
-        -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-        -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-
-        -- Telescope
-        local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
-        vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
-        vim.keymap.set('n', '<leader><Space>', builtin.buffers, { desc = 'Telescope buffers' })
-        vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tags' })
-        vim.keymap.set('n', '<leader>c', builtin.colorscheme, { desc = 'Telescope colorscheme' })
-        vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, { desc = 'Telescope Current Buffer Symbols' })
-        vim.keymap.set('n', '<leader>d', builtin.diagnostics, { desc = 'Telescope Diagnostics' })
-        -- vim.keymap.set('n', '<leader>S', builtin.tags, { desc = 'Telescope all tags' })
-        -- vim.keymap.set('n', '<leader>s', builtin.current_buffer_tags, { desc = 'Telescope buffer tags' })
-        vim.keymap.set('n', '<leader>m', builtin.marks, { desc ='Telescope marks'})
-        vim.keymap.set('n', '<leader>n', function()
-            builtin.find_files { cwd = vim.fn.stdpath('config') } -- TODO: change to just open the config file, no need for telescope picker
-        end, { desc = 'Telescope Neovim config files' })
-
-        require('telescope').setup {
-            pickers = {
-                colorscheme = {
-                    theme = 'dropdown',
-                    enable_preview = true,
-                },
-                buffers = {
-                    theme = 'dropdown',
-                },
-                find_files = {
-                    theme = 'dropdown',
-                },
-                marks = { -- maybe just remove
-                    theme = 'dropdown',
-                },
-            },
-        }
-
-        -- Oil
-        require('oil').setup {
-            default_file_explorer = true,
-            view_options = {
-                show_hidden = true,
-            },
-        }
-
-        vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Oil - Open parent directory' })
-        -- vim.keymap.set('n', '-', function()
-            --   require('oil').open_float()
-            -- end, {
-            --   desc = 'Oil float'
-            -- })
-
-
-            -- require('nvim-autopairs').setup {}
-
-            -- require('marks').setup {}
-
-            require('lualine').setup {
-                -- sections = {
-                    --
-                    -- }
-                }
-
-                -- Treesitter
-                local ts = require('nvim-treesitter')
-                local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust', 'gdscript' }
-                ts.install(ts_parsers)
-
-                vim.api.nvim_create_autocmd('FileType', {
-                    callback = function(args)
-                        local filetype = args.match
-                        local lang = vim.treesitter.language.get_lang(filetype)
-
-                        if lang and vim.treesitter.language.add(lang) then
-                            -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-                            vim.treesitter.start()
-                        end
-                    end,
-                })
-
-                vim.api.nvim_create_user_command("TSHighlight", function(opts)
-                    local buf = vim.api.nvim_get_current_buf()
-
-                    if opts.args == "on" then
-                        vim.treesitter.start(buf)
-                        print("Treesitter highlighting enabled")
-                    elseif opts.args == "off" then
-                        vim.treesitter.stop(buf)
-                        print("Treesitter highlighting disabled")
-                    else
-                        print("Usage: :TSHighlight [on|off]")
-                    end
-                end, {
-                nargs = 1,
-                complete = function()
-                    return { "on", "off" }
-                end,
-            })
-
-            local map = vim.keymap.set
-
-            -- tab & shift tab for buffer switching
-            map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
-            map('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
-
-            -- clear search highlighting :noh
-            map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and Clear hlsearch' })
-
-            -- helix goto start / end line
-            map({ 'n', 'v' }, 'gl', '$', { desc = 'Go to end of line' })
-            map({ 'n', 'v' }, 'gh', '^', { desc = 'Go to start of line' })
-
-            -- helix line shift
-            map('n', '>', 'V>')
-            map('n', '<', 'V<')
-
-            -- persistent visual selection after indentation
-            map('v', '>', '>gv')
-            map('v', '<', '<gv')
-
-            -- window swapping without ctrl w
-            map('n', '<leader>ur', '<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>', { desc = 'Redraw / Clear hlsearch / Diff Update' })
-            map('n', '<C-h>', '<C-w>h', { desc = 'Go to Left Window', remap = true })
-            map('n', '<C-j>', '<C-w>j', { desc = 'Go to Lower Window', remap = true })
-            map('n', '<C-k>', '<C-w>k', { desc = 'Go to Upper Window', remap = true })
-            map('n', '<C-l>', '<C-w>l', { desc = 'Go to Right Window', remap = true })
-
-            -- highlight on yank
-            vim.api.nvim_create_autocmd('TextYankPost', {
-                callback = function()
-                    (vim.hl or vim.highlight).on_yank()
-                end,
-            })
-
-            -- A match indentation on empty line
-            vim.keymap.set('n', 'A', function()
-                if vim.fn.getline('.'):match('^%s*$') then
-                    return '"_cc'
+                if lang and vim.treesitter.language.add(lang) then
+                    -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    vim.treesitter.start()
                 end
-                return 'A'
-            end, { expr = true })
+            end,
+        })
+
+        vim.api.nvim_create_user_command("TSHighlight", function(opts)
+            local buf = vim.api.nvim_get_current_buf()
+
+            if opts.args == "on" then
+                vim.treesitter.start(buf)
+                print("Treesitter highlighting enabled")
+            elseif opts.args == "off" then
+                vim.treesitter.stop(buf)
+                print("Treesitter highlighting disabled")
+            else
+                print("Usage: :TSHighlight [on|off]")
+            end
+        end, {
+        nargs = 1,
+        complete = function()
+            return { "on", "off" }
+        end,
+    })
+
+    local map = vim.keymap.set
+
+    -- tab & shift tab for buffer switching
+    map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
+    map('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
+
+    -- clear search highlighting :noh
+    map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and Clear hlsearch' })
+
+    -- helix goto start / end line
+    map({ 'n', 'v' }, 'gl', '$', { desc = 'Go to end of line' })
+    map({ 'n', 'v' }, 'gh', '^', { desc = 'Go to start of line' })
+
+    -- helix line shift
+    map('n', '>', 'V>')
+    map('n', '<', 'V<')
+
+    -- persistent visual selection after indentation
+    map('v', '>', '>gv')
+    map('v', '<', '<gv')
+
+    -- window swapping without ctrl w
+    map('n', '<leader>ur', '<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>', { desc = 'Redraw / Clear hlsearch / Diff Update' })
+    map('n', '<C-h>', '<C-w>h', { desc = 'Go to Left Window', remap = true })
+    map('n', '<C-j>', '<C-w>j', { desc = 'Go to Lower Window', remap = true })
+    map('n', '<C-k>', '<C-w>k', { desc = 'Go to Upper Window', remap = true })
+    map('n', '<C-l>', '<C-w>l', { desc = 'Go to Right Window', remap = true })
+
+    -- highlight on yank
+    vim.api.nvim_create_autocmd('TextYankPost', {
+        callback = function()
+            (vim.hl or vim.highlight).on_yank()
+        end,
+    })
+
+    -- A match indentation on empty line
+    vim.keymap.set('n', 'A', function()
+        if vim.fn.getline('.'):match('^%s*$') then
+            return '"_cc'
+        end
+        return 'A'
+    end, { expr = true })

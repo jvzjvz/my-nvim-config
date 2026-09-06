@@ -45,7 +45,7 @@ local colorschemes = {
     'https://github.com/metalelf0/black-metal-theme-neovim',
     -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
     -- 'https://github.com/itsthomashere/grace.nvim',
-    -- 'https://github.com/AvengeMedia/base46',
+    'https://github.com/AvengeMedia/base46',
     'https://github.com/thallada/farout.nvim',
     -- 'https://github.com/Verf/deepwhite.nvim',
     -- 'https://github.com/embark-theme/vim',
@@ -206,7 +206,7 @@ local binary_brown = "#9E8767"
 local binary_offwhite = "#C0B19B"
 require('binary').setup {
     colors = {
-          bg = binary_yellow,
+          bg = binary_offwhite,
         }
     }
 
@@ -280,6 +280,6 @@ ayu.setup {
     }
 }
 
-vim.cmd.colorscheme('binary')
+vim.cmd.colorscheme('base46-ayu_dark')
 
 return C
