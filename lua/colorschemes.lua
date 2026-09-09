@@ -68,6 +68,7 @@ local colorschemes = {
     -- 'https://github.com/arturgoms/moonbow.nvim',
     -- 'https://github.com/tomstolarczuk/rider.nvim',
     'https://github.com/Shatur/neovim-ayu',
+    'https://github.com/aadielpr/bono.nvim',
 }
 
 vim.pack.add(colorschemes)
