@@ -281,6 +281,6 @@ ayu.setup {
     }
 }
 
-vim.cmd.colorscheme('base46-ayu_dark')
+vim.cmd.colorscheme('bono')
 
 return C
