@@ -64,12 +64,12 @@ vim.pack.add(qol_extensions)
 
 require('which-key').setup {}
 
-require('ibl').setup {
-    -- indent = { 
-        -- char = '▏',
-        -- char = '→'
-    -- }
-}
+-- require('ibl').setup {
+--     -- indent = { 
+--         -- char = '▏',
+--         -- char = '→'
+--     -- }
+-- }
 
 local autocomplete_level = {
     none = "none",

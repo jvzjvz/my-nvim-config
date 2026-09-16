@@ -69,6 +69,7 @@ local colorschemes = {
     -- 'https://github.com/tomstolarczuk/rider.nvim',
     'https://github.com/Shatur/neovim-ayu',
     'https://github.com/aadielpr/bono.nvim',
+    'https://github.com/linhusp/spore.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -281,6 +282,6 @@ ayu.setup {
     }
 }
 
-vim.cmd.colorscheme('bono')
+vim.cmd.colorscheme('jellybeans-mono')
 
 return C
