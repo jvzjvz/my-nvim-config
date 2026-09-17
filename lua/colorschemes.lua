@@ -204,14 +204,15 @@ require('everforest').setup {
     end
 }
 
+local binary_offwhite = '#CEC1A1'
 -- local binary_yellow = "#ffb400"
 -- local binary_brown = "#9E8767"
 -- local binary_offwhite = "#C0B19B"
--- require('binary').setup {
---     colors = {
---           bg = binary_offwhite,
---         }
---     }
+require('binary').setup {
+    colors = {
+          bg = binary_offwhite,
+        }
+    }
 
 
 require('gruvbox-minimal').setup {
@@ -244,13 +245,18 @@ variant = 'dawn'
 
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
+vim.g.gruvbox_material_visual = 'reverse'
+vim.g.gruvbox_material_ui_contrast = 'high'
+vim.g.gruvbox_material_diagnostic_line_highlight = 1
+
 vim.g.gruvbox_material_colors_override = {
--- bg0 = { '#000000', '234' },
-bg0 = { '#111111', '234' },
-bg1 = { '#1d1d1d', '235' },
-bg2 = { '#262626', '236' },
-bg3 = { '#303030', '237' },
-bg_visual = { '#3a3a3a', '239' },
+    bg0 = { '#000000', '234' },
+    -- bg0 = { '#111111', '234' },
+
+    -- bg1 = { '#1d1d1d', '235' },
+    -- bg2 = { '#262626', '236' },
+    -- bg3 = { '#303030', '237' },
+    -- bg_visual = { '#3a3a3a', '239' },
 }
 
 require('nordic').setup {
@@ -283,6 +289,6 @@ ayu.setup {
     }
 }
 
-vim.cmd.colorscheme('noir')
+vim.cmd.colorscheme('gruvbox-material')
 
 return C
