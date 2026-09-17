@@ -19,10 +19,10 @@ local colorschemes = {
     'https://github.com/zenbones-theme/zenbones.nvim',
     -- 'https://github.com/Oniup/ignite.nvim',
     'https://github.com/deparr/tairiki.nvim',
-    'https://github.com/metalelf0/kintsugi-nvim',
+    -- 'https://github.com/metalelf0/kintsugi-nvim',
     'https://github.com/saeeedhany/parchment.nvim',
     'https://github.com/jackplus-xyz/binary.nvim',
-    'https://github.com/drewxs/ash.nvim',
+    -- 'https://github.com/drewxs/ash.nvim',
     -- 'https://github.com/amedoeyes/eyes.nvim',
     'https://github.com/mrpbennett/vault',
     'https://github.com/phha/zenburn.nvim',
@@ -32,13 +32,12 @@ local colorschemes = {
     'https://github.com/Sly-Harvey/radium.nvim',
     'https://github.com/xeind/nightingale.nvim',
     'https://github.com/Mofiqul/vscode.nvim',
-    'https://github.com/EdenEast/nightfox.nvim',
+    -- 'https://github.com/EdenEast/nightfox.nvim',
     -- 'https://github.com/marekh19/meowsoot.nvim',
     -- 'https://github.com/kotsuban/nekomi.nvim',
     -- 'https://github.com/ATTron/bebop.nvim',
     'https://github.com/catppuccin/nvim',
     'https://github.com/rebelot/kanagawa.nvim',
-    'https://github.com/VyomJain6904/charcoal.nvim',
     -- 'https://github.com/Dich0tomy/oxocarbon-lua.nvim',
     -- 'https://github.com/chama-chomo/grail',
 
@@ -70,6 +69,8 @@ local colorschemes = {
     'https://github.com/Shatur/neovim-ayu',
     'https://github.com/aadielpr/bono.nvim',
     'https://github.com/linhusp/spore.nvim',
+    'https://github.com/dzfrias/noir.nvim',
+    'https://github.com/Sequoia-Theme/neovim',
 }
 
 vim.pack.add(colorschemes)
@@ -203,14 +204,14 @@ require('everforest').setup {
     end
 }
 
-local binary_yellow = "#ffb400"
-local binary_brown = "#9E8767"
-local binary_offwhite = "#C0B19B"
-require('binary').setup {
-    colors = {
-          bg = binary_offwhite,
-        }
-    }
+-- local binary_yellow = "#ffb400"
+-- local binary_brown = "#9E8767"
+-- local binary_offwhite = "#C0B19B"
+-- require('binary').setup {
+--     colors = {
+--           bg = binary_offwhite,
+--         }
+--     }
 
 
 require('gruvbox-minimal').setup {
@@ -282,6 +283,6 @@ ayu.setup {
     }
 }
 
-vim.cmd.colorscheme('jellybeans-mono')
+vim.cmd.colorscheme('noir')
 
 return C
