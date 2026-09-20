@@ -70,7 +70,7 @@ local colorschemes = {
     'https://github.com/aadielpr/bono.nvim',
     'https://github.com/linhusp/spore.nvim',
     'https://github.com/dzfrias/noir.nvim',
-    'https://github.com/Sequoia-Theme/neovim',
+    'https://github.com/rose-pine/neovim',
 }
 
 vim.pack.add(colorschemes)
