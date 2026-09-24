@@ -26,7 +26,7 @@ local colorschemes = {
     -- 'https://github.com/amedoeyes/eyes.nvim',
     'https://github.com/mrpbennett/vault',
     'https://github.com/phha/zenburn.nvim',
-    'https://github.com/cappyzawa/akari-nvim',
+    -- 'https://github.com/cappyzawa/akari-nvim',
     'https://github.com/dybdeskarphet/gruvbox-minimal.nvim',
     'https://github.com/AlexvZyl/nordic.nvim',
     'https://github.com/Sly-Harvey/radium.nvim',
@@ -71,6 +71,9 @@ local colorschemes = {
     'https://github.com/linhusp/spore.nvim',
     'https://github.com/dzfrias/noir.nvim',
     'https://github.com/rose-pine/neovim',
+    'https://github.com/folke/tokyonight.nvim',
+    'https://github.com/kepano/flexoki-neovim',
+    'https://github.com/tinted-theming/tinted-vim',
 }
 
 vim.pack.add(colorschemes)
@@ -222,9 +225,9 @@ Normal = { bg = '#111111' }
 }
 }
 
-require('akari').setup {
-variant = 'dawn'
-}
+-- require('akari').setup {
+-- variant = 'dawn'
+-- }
 
 -- require('bebop').setup {
 --   preset = 'faye'
@@ -242,6 +245,15 @@ variant = 'dawn'
 --   }
 -- }
 --
+
+require('rose-pine').setup {
+    variant = 'moon',
+    palette = {
+        moon = {
+            base = '#000000'
+        }
+    }
+}
 
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
