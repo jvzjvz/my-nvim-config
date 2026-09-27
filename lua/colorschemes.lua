@@ -8,6 +8,7 @@ local colorschemes = {
             'https://github.com/rktjmp/lush.nvim',
         }
     },
+    'https://github.com/jvzjvz/twilight.nvim',
     'https://github.com/jvzjvz/autumn_night.nvim',
     'https://github.com/jvzjvz/srcery-vim',
     'https://github.com/jvzjvz/gruvbox-darker.nvim',
@@ -30,7 +31,7 @@ local colorschemes = {
     'https://github.com/dybdeskarphet/gruvbox-minimal.nvim',
     'https://github.com/AlexvZyl/nordic.nvim',
     'https://github.com/Sly-Harvey/radium.nvim',
-    'https://github.com/xeind/nightingale.nvim',
+    -- 'https://github.com/xeind/nightingale.nvim',
     'https://github.com/Mofiqul/vscode.nvim',
     -- 'https://github.com/EdenEast/nightfox.nvim',
     -- 'https://github.com/marekh19/meowsoot.nvim',
@@ -44,7 +45,7 @@ local colorschemes = {
     'https://github.com/metalelf0/black-metal-theme-neovim',
     -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
     -- 'https://github.com/itsthomashere/grace.nvim',
-    'https://github.com/AvengeMedia/base46',
+    -- 'https://github.com/AvengeMedia/base46',
     'https://github.com/thallada/farout.nvim',
     -- 'https://github.com/Verf/deepwhite.nvim',
     -- 'https://github.com/embark-theme/vim',
@@ -53,8 +54,8 @@ local colorschemes = {
     'https://github.com/sedgholm/terracotta.nvim',
     'https://github.com/aidyak/tokusa',
     'https://github.com/jpwol/thorn.nvim',
-    'https://github.com/YajanaRao/forestflower',
-    'https://github.com/sample-usr/rakis.nvim',
+    -- 'https://github.com/YajanaRao/forestflower',
+    -- 'https://github.com/sample-usr/rakis.nvim',
     -- 'https://github.com/shrikecode/kyotonight.vim',
     'https://github.com/kyzabuilds/xeno.nvim',
     -- 'https://github.com/saran13raj/wheat-fox.nvim',
@@ -63,7 +64,7 @@ local colorschemes = {
     'https://github.com/WTFox/luna.nvim',
     'https://github.com/folke/tokyonight.nvim',
     -- 'https://github.com/oonamo/ef-themes.nvim',
-    'https://github.com/jvzjvz/zephyr-nvim',
+    -- 'https://github.com/jvzjvz/zephyr-nvim',
     -- 'https://github.com/arturgoms/moonbow.nvim',
     -- 'https://github.com/tomstolarczuk/rider.nvim',
     'https://github.com/Shatur/neovim-ayu',
@@ -74,6 +75,11 @@ local colorschemes = {
     'https://github.com/folke/tokyonight.nvim',
     'https://github.com/kepano/flexoki-neovim',
     'https://github.com/tinted-theming/tinted-vim',
+    'https://github.com/dchinmay2/alabaster.nvim',
+    'https://github.com/Mofiqul/adwaita.nvim',
+    'https://github.com/neutaaaaan/monosvkem',
+    'https://github.com/Lokaltog/monotone.nvim',
+    'https://github.com/danishprakash/vim-yami',
 }
 
 vim.pack.add(colorschemes)
@@ -207,15 +213,15 @@ require('everforest').setup {
     end
 }
 
-local binary_offwhite = '#CEC1A1'
+-- local binary_offwhite = '#CEC1A1'
 -- local binary_yellow = "#ffb400"
 -- local binary_brown = "#9E8767"
 -- local binary_offwhite = "#C0B19B"
-require('binary').setup {
-    colors = {
-          bg = binary_offwhite,
-        }
-    }
+-- require('binary').setup {
+--     colors = {
+--           bg = binary_offwhite,
+--         }
+--     }
 
 
 require('gruvbox-minimal').setup {
@@ -301,6 +307,8 @@ ayu.setup {
     }
 }
 
-vim.cmd.colorscheme('gruvbox-material')
+-- vim.cmd.colorscheme('gruvbox-material')
+-- vim.cmd.colorscheme('base16-charcoal-light')
+vim.cmd.colorscheme('monotone')
 
 return C
