@@ -80,6 +80,7 @@ local colorschemes = {
     'https://github.com/neutaaaaan/monosvkem',
     'https://github.com/Lokaltog/monotone.nvim',
     'https://github.com/danishprakash/vim-yami',
+    'https://github.com/slugbyte/lackluster.nvim',
 }
 
 vim.pack.add(colorschemes)
