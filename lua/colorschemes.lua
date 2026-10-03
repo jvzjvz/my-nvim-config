@@ -204,8 +204,14 @@ require('catppuccin').setup {
 require('everforest').setup {
     background = 'hard',
     ui_contrast = 'high',
+    on_highlights = function(hl, palette)
+        hl.Delimiter = { fg = palette.grey1 }
+        hl['@tag.delimiter'] = { fg = palette.grey1 }
+        hl['@punctuation.bracket'] = { fg = palette.grey1 }
+    end,
     colours_override = function(palette)
-        palette.bg0 = '#111111'
+        palette.bg0 = '#000000'
+        -- palette.bg0 = '#111111'
         palette.bg1 = '#2d353b'
         palette.bg2 = '#2d353b'
         palette.bg3 = '#2d353b'
@@ -310,6 +316,6 @@ ayu.setup {
 
 -- vim.cmd.colorscheme('gruvbox-material')
 -- vim.cmd.colorscheme('base16-charcoal-light')
-vim.cmd.colorscheme('monotone')
+vim.cmd.colorscheme('everforest')
 
 return C
