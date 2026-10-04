@@ -15,7 +15,7 @@ local colorschemes = {
     'https://github.com/wtfox/jellybeans.nvim',
     'https://github.com/harivansh-afk/cozybox.nvim',
     'https://github.com/neanias/everforest-nvim',
-    -- {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
+    {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
     'https://github.com/sainnhe/gruvbox-material',
     'https://github.com/zenbones-theme/zenbones.nvim',
     -- 'https://github.com/Oniup/ignite.nvim',
@@ -74,13 +74,16 @@ local colorschemes = {
     'https://github.com/rose-pine/neovim',
     'https://github.com/folke/tokyonight.nvim',
     'https://github.com/kepano/flexoki-neovim',
-    'https://github.com/tinted-theming/tinted-vim',
+    -- 'https://github.com/tinted-theming/tinted-vim',
     'https://github.com/dchinmay2/alabaster.nvim',
     'https://github.com/Mofiqul/adwaita.nvim',
     'https://github.com/neutaaaaan/monosvkem',
     'https://github.com/Lokaltog/monotone.nvim',
     'https://github.com/danishprakash/vim-yami',
     'https://github.com/slugbyte/lackluster.nvim',
+    'https://github.com/D0nw0r/dark2026.nvim',
+    'https://github.com/fynnfluegge/monet.nvim',
+    'https://github.com/skylarmb/torchlight.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -220,6 +223,10 @@ require('everforest').setup {
     end
 }
 
+require('black-metal').setup {
+    trve = false
+}
+
 -- local binary_offwhite = '#CEC1A1'
 -- local binary_yellow = "#ffb400"
 -- local binary_brown = "#9E8767"
@@ -275,8 +282,8 @@ vim.g.gruvbox_material_ui_contrast = 'high'
 vim.g.gruvbox_material_diagnostic_line_highlight = 1
 
 vim.g.gruvbox_material_colors_override = {
-    bg0 = { '#000000', '234' },
-    -- bg0 = { '#111111', '234' },
+    -- bg0 = { '#000000', '234' },
+    bg0 = { '#111111', '234' },
 
     -- bg1 = { '#1d1d1d', '235' },
     -- bg2 = { '#262626', '236' },
@@ -316,6 +323,6 @@ ayu.setup {
 
 -- vim.cmd.colorscheme('gruvbox-material')
 -- vim.cmd.colorscheme('base16-charcoal-light')
-vim.cmd.colorscheme('everforest')
+vim.cmd.colorscheme('twilight')
 
 return C
