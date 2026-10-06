@@ -66,6 +66,7 @@ local installed_lsps = {
     'zls',
     'rust_analyzer',
     'ts_ls',
+    'pylsp'
     -- 'serve_d'
 }
 

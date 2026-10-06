@@ -2,12 +2,8 @@ local C = {}
 
 local colorschemes = {
     'https://github.com/rktjmp/lush.nvim', -- common dependency and for custom theme making
-    {
-        src = 'https://github.com/jvzjvz/gild.nvim',
-        dependencies = {
-            'https://github.com/rktjmp/lush.nvim',
-        }
-    },
+    'https://github.com/jvzjvz/gild.nvim',
+    'https://github.com/jvzjvz/rose_dark.nvim',
     'https://github.com/jvzjvz/twilight.nvim',
     'https://github.com/jvzjvz/autumn_night.nvim',
     'https://github.com/jvzjvz/srcery-vim',
@@ -76,8 +72,7 @@ local colorschemes = {
     'https://github.com/kepano/flexoki-neovim',
     -- 'https://github.com/tinted-theming/tinted-vim',
     'https://github.com/dchinmay2/alabaster.nvim',
-    'https://github.com/Mofiqul/adwaita.nvim',
-    'https://github.com/neutaaaaan/monosvkem',
+    -- 'https://github.com/Mofiqul/adwaita.nvim',
     'https://github.com/Lokaltog/monotone.nvim',
     'https://github.com/danishprakash/vim-yami',
     'https://github.com/slugbyte/lackluster.nvim',
@@ -323,6 +318,6 @@ ayu.setup {
 
 -- vim.cmd.colorscheme('gruvbox-material')
 -- vim.cmd.colorscheme('base16-charcoal-light')
-vim.cmd.colorscheme('twilight')
+vim.cmd.colorscheme('rose_dark')
 
 return C
