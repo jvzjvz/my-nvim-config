@@ -79,6 +79,9 @@ local colorschemes = {
     'https://github.com/D0nw0r/dark2026.nvim',
     'https://github.com/fynnfluegge/monet.nvim',
     'https://github.com/skylarmb/torchlight.nvim',
+    'https://github.com/marko-cerovac/material.nvim',
+    'https://github.com/hitaishi2222/imli-nvim',
+    'https://github.com/rashedInt32/tidepool.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -316,8 +319,13 @@ ayu.setup {
     }
 }
 
--- vim.cmd.colorscheme('gruvbox-material')
+require('torchlight').setup {
+    opts = {
+        contrast = 'hard'
+    }
+}
+
+vim.cmd.colorscheme('gruvbox-material')
 -- vim.cmd.colorscheme('base16-charcoal-light')
-vim.cmd.colorscheme('rose_dark')
 
 return C
