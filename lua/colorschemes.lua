@@ -42,7 +42,7 @@ local colorschemes = {
     -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
     -- 'https://github.com/itsthomashere/grace.nvim',
     -- 'https://github.com/AvengeMedia/base46',
-    'https://github.com/thallada/farout.nvim',
+    -- 'https://github.com/thallada/farout.nvim',
     -- 'https://github.com/Verf/deepwhite.nvim',
     -- 'https://github.com/embark-theme/vim',
     -- 'https://github.com/oskarnurm/koda.nvim',
@@ -66,7 +66,6 @@ local colorschemes = {
     'https://github.com/Shatur/neovim-ayu',
     'https://github.com/aadielpr/bono.nvim',
     'https://github.com/linhusp/spore.nvim',
-    'https://github.com/dzfrias/noir.nvim',
     'https://github.com/rose-pine/neovim',
     'https://github.com/folke/tokyonight.nvim',
     'https://github.com/kepano/flexoki-neovim',
@@ -77,11 +76,11 @@ local colorschemes = {
     'https://github.com/danishprakash/vim-yami',
     'https://github.com/slugbyte/lackluster.nvim',
     'https://github.com/D0nw0r/dark2026.nvim',
-    'https://github.com/fynnfluegge/monet.nvim',
     'https://github.com/skylarmb/torchlight.nvim',
     'https://github.com/marko-cerovac/material.nvim',
     'https://github.com/hitaishi2222/imli-nvim',
     'https://github.com/rashedInt32/tidepool.nvim',
+    'https://github.com/bluz71/vim-moonfly-colors',
 }
 
 vim.pack.add(colorschemes)
@@ -325,7 +324,54 @@ require('torchlight').setup {
     }
 }
 
-vim.cmd.colorscheme('gruvbox-material')
+local material = require('material')
+local material_colors = require('material.colors')
+
+local custom_highlights = {
+        white      = "#EEFFFF",
+        gray       = "#717CB4",
+        black      = "#000000",
+        red        = "#F07178",
+        green      = "#C3E88D",
+        yellow     = "#FFCB6B",
+        blue       = "#82AAFF",
+        paleblue   = "#B0C9FF",
+        cyan       = "#89DDFF",
+        purple     = "#C792EA",
+        orange     = "#F78C6C",
+        -- pink       = "#FF9CAC",
+
+        darkred    = "#DC6068",
+        darkgreen  = "#ABCF76",
+        darkyellow = "#E6B455",
+        darkblue   = "#6E98EB",
+        darkcyan   = "#71C6E7",
+        darkpurple = "#B480D6",
+        darkorange = "#E2795B",
+    }
+
+material.setup {
+    custom_highlights = {
+        Conditional = { fg = '#89DDFF' },
+        Keyword = { fg = '#89DDFF' },
+        ['@type'] = { fg = '#B0C9FF' },
+        ['@lsp.type.class'] = { fg = '#82AAFF' },
+        ['@property'] = { fg = '#82AAFF' },
+        ['@variable.member'] = { fg = '#82AAFF' },
+        -- ['@constant'] = { fg = '#B0C9FF' },
+        ['@constant'] = { fg = '#F07178' },
+        ['@constant.macro'] = { fg = '#6E98EB' }
+    },
+    -- custom_colors = function(colors)
+    --     -- colors.editor.bg = '#FFFFFF'
+    --     colors.syntax.variable = '#EEFFFF'
+    --     -- colors.editor.accent = material_colors.white
+    -- end
+}
+
+-- vim.cmd.colorscheme('gruvbox-material')
 -- vim.cmd.colorscheme('base16-charcoal-light')
+-- vim.cmd.colorscheme('torchlight-dusk')
+vim.cmd.colorscheme('material-deep-ocean')
 
 return C
