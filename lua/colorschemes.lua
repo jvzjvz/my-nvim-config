@@ -353,14 +353,35 @@ local custom_highlights = {
 material.setup {
     custom_highlights = {
         Conditional = { fg = '#89DDFF' },
-        Keyword = { fg = '#89DDFF' },
+        -- Keyword = { fg = '#89DDFF' },
+        -- Keyword = { fg = '#B0C9FF' },
+        Keyword = { fg = '#F07178' },
+        Type = { fg = '#6E98EB' },
+        -- ['@type'] = { fg = '#71C6E7' },
         ['@type'] = { fg = '#B0C9FF' },
-        ['@lsp.type.class'] = { fg = '#82AAFF' },
+        ['@type.builtin'] = { fg = '#B0C9FF' },
+        -- Type = { fg = '#B0C9FF' },
+        -- ['@type'] = { fg = '#B0C9FF' },
+        -- ['@lsp.type.class'] = { fg = '#82AAFF' },
+        -- ['@lsp.type.class.c'] = { fg = '#82AAFF' },
         ['@property'] = { fg = '#82AAFF' },
-        ['@variable.member'] = { fg = '#82AAFF' },
+        -- ['@variable.member'] = { fg = '#82AAFF' },
         -- ['@constant'] = { fg = '#B0C9FF' },
-        ['@constant'] = { fg = '#F07178' },
-        ['@constant.macro'] = { fg = '#6E98EB' }
+        -- ['@constant'] = { fg = '#F07178' },
+        -- ['@constant'] = { fg = '#F78C6C' },
+        ['@constant'] = { fg = '#6E98EB' },
+        -- ['@constant'] = { fg = '#FFCB6B' },
+        ['@constant.macro'] = { fg = '#71C6E7' },
+        -- ['@constant.macro'] = { fg = '#B0C9FF' },
+        -- Function = { fg = '#B0C9FF' },
+        -- Function = { fg = '#71C6E7' },
+        -- Function = { fg = '#DC6068' },
+        -- ['@function'] = { fg = '#71C6E7' },
+        -- ['@punctuation.bracket'] = { fg = '#717CB4' },
+        -- ['@variable'] = { fg = '#6E98EB' },
+        -- ['@operator'] = { fg = '#82AAFF' }
+        -- ['@punctuation.bracket'] = { fg = '#EEFFFF' }
+
     },
     -- custom_colors = function(colors)
     --     -- colors.editor.bg = '#FFFFFF'
