@@ -207,7 +207,7 @@ vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Oil - Open parent directory' 
 
         -- Treesitter
         local ts = require('nvim-treesitter')
-        local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust', 'gdscript' }
+        local ts_parsers = { 'c', 'cpp', 'odin', 'nim', 'lua', 'zig', 'rust', 'gdscript', 'javascript' }
         ts.install(ts_parsers)
 
         vim.api.nvim_create_autocmd('FileType', {
