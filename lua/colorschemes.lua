@@ -81,6 +81,9 @@ local colorschemes = {
     'https://github.com/hitaishi2222/imli-nvim',
     'https://github.com/rashedInt32/tidepool.nvim',
     'https://github.com/bluz71/vim-moonfly-colors',
+    'https://github.com/saran13raj/wheat-fox.nvim',
+    'https://github.com/zhiwei-ou/grayveil.nvim',
+    'https://github.com/shiraied/wolf359_nvim_rust_theme',
 }
 
 vim.pack.add(colorschemes)
@@ -376,8 +379,17 @@ material.setup {
         -- ['@type.builtin'] = { fg = '#EEFFFF' },
         -- ['@property'] = { fg = '#A6ACCD' },
         -- ['@variable.member'] = { fg = '#A6ACCD' },
-        ['@property'] = { fg = '#C792EA' },
-        ['@variable.member'] = { fg = '#C792EA' },
+        
+        -- ['@property'] = { fg = '#C792EA' },
+        -- ['@variable.member'] = { fg = '#C792EA' },
+
+        ['@property'] = { fg = '#8994CD' },
+        ['@variable.member'] = { fg = '#8994CD' },
+
+        ['@property'] = { fg = '#95A0D0' },
+        ['@variable.member'] = { fg = '#95A0D0' },
+
+
         Constant = { fg = '#A6ACCD'},
         ['@constant'] = { link = Constant },
         -- Constant = { fg = '#F78C6C'},
@@ -395,9 +407,12 @@ material.setup {
     -- end
 }
 
+require('wheat-fox').setup {}
+
 -- vim.cmd.colorscheme('gruvbox-material')
 -- vim.cmd.colorscheme('base16-charcoal-light')
 -- vim.cmd.colorscheme('torchlight-dusk')
 vim.cmd.colorscheme('material-deep-ocean')
+-- vim.cmd.colorscheme('wheat-fox')
 
 return C

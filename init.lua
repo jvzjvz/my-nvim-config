@@ -77,7 +77,7 @@ local autocomplete_level = {
     lsp = "lsp"
 };
 
-vim.g.autocomplete_level = autocomplete_level.basic;
+vim.g.autocomplete_level = autocomplete_level.lsp;
 
 if vim.g.autocomplete_level == autocomplete_level.lsp then
     require("lsp")
