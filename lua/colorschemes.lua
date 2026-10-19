@@ -2,6 +2,7 @@ local C = {}
 
 local colorschemes = {
     'https://github.com/rktjmp/lush.nvim', -- common dependency and for custom theme making
+    'https://github.com/jvzjvz/dragon.nvim',
     'https://github.com/jvzjvz/gild.nvim',
     'https://github.com/jvzjvz/rose_dark.nvim',
     'https://github.com/jvzjvz/twilight.nvim',
@@ -36,7 +37,7 @@ local colorschemes = {
     'https://github.com/catppuccin/nvim',
     'https://github.com/rebelot/kanagawa.nvim',
     -- 'https://github.com/Dich0tomy/oxocarbon-lua.nvim',
-    -- 'https://github.com/chama-chomo/grail',
+    'https://github.com/chama-chomo/grail',
 
     'https://github.com/metalelf0/black-metal-theme-neovim',
     -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
@@ -44,7 +45,7 @@ local colorschemes = {
     -- 'https://github.com/AvengeMedia/base46',
     -- 'https://github.com/thallada/farout.nvim',
     -- 'https://github.com/Verf/deepwhite.nvim',
-    -- 'https://github.com/embark-theme/vim',
+    'https://github.com/embark-theme/vim',
     -- 'https://github.com/oskarnurm/koda.nvim',
     'https://github.com/uhs-robert/oasis.nvim',
     'https://github.com/sedgholm/terracotta.nvim',
@@ -78,12 +79,12 @@ local colorschemes = {
     'https://github.com/D0nw0r/dark2026.nvim',
     'https://github.com/skylarmb/torchlight.nvim',
     'https://github.com/marko-cerovac/material.nvim',
-    'https://github.com/hitaishi2222/imli-nvim',
-    'https://github.com/rashedInt32/tidepool.nvim',
     'https://github.com/bluz71/vim-moonfly-colors',
-    'https://github.com/saran13raj/wheat-fox.nvim',
+    -- 'https://github.com/saran13raj/wheat-fox.nvim',
     'https://github.com/zhiwei-ou/grayveil.nvim',
-    'https://github.com/shiraied/wolf359_nvim_rust_theme',
+    'https://codeberg.org/navahas/sanzo.nvim',
+    'https://github.com/henit-chobisa/koala-neovim',
+    'https://github.com/ilof2/posterpole.nvim',
 }
 
 vim.pack.add(colorschemes)
@@ -282,8 +283,8 @@ vim.g.gruvbox_material_ui_contrast = 'high'
 vim.g.gruvbox_material_diagnostic_line_highlight = 1
 
 vim.g.gruvbox_material_colors_override = {
-    -- bg0 = { '#000000', '234' },
-    bg0 = { '#111111', '234' },
+    bg0 = { '#000000', '234' },
+    -- bg0 = { '#111111', '234' },
 
     -- bg1 = { '#1d1d1d', '235' },
     -- bg2 = { '#262626', '236' },
@@ -327,33 +328,7 @@ require('torchlight').setup {
     }
 }
 
-local material = require('material')
-local material_colors = require('material.colors')
-
-local custom_highlights = {
-        white      = "#EEFFFF",
-        gray       = "#717CB4",
-        black      = "#000000",
-        red        = "#F07178",
-        green      = "#C3E88D",
-        yellow     = "#FFCB6B",
-        blue       = "#82AAFF",
-        paleblue   = "#B0C9FF",
-        cyan       = "#89DDFF",
-        purple     = "#C792EA",
-        orange     = "#F78C6C",
-        -- pink       = "#FF9CAC",
-
-        darkred    = "#DC6068",
-        darkgreen  = "#ABCF76",
-        darkyellow = "#E6B455",
-        darkblue   = "#6E98EB",
-        darkcyan   = "#71C6E7",
-        darkpurple = "#B480D6",
-        darkorange = "#E2795B",
-    }
-
-material.setup {
+require('material').setup {
     custom_highlights = {
         MatchParen = { fg = '#F07178'},
         Conditional = { fg = '#89DDFF' },
@@ -379,7 +354,7 @@ material.setup {
         -- ['@type.builtin'] = { fg = '#EEFFFF' },
         -- ['@property'] = { fg = '#A6ACCD' },
         -- ['@variable.member'] = { fg = '#A6ACCD' },
-        
+
         -- ['@property'] = { fg = '#C792EA' },
         -- ['@variable.member'] = { fg = '#C792EA' },
 
@@ -400,19 +375,8 @@ material.setup {
         ['@string.escape'] = { fg = '#F07178' },
 
     },
-    -- custom_colors = function(colors)
-    --     -- colors.editor.bg = '#FFFFFF'
-    --     colors.syntax.variable = '#EEFFFF'
-    --     -- colors.editor.accent = material_colors.white
-    -- end
 }
 
-require('wheat-fox').setup {}
-
--- vim.cmd.colorscheme('gruvbox-material')
--- vim.cmd.colorscheme('base16-charcoal-light')
--- vim.cmd.colorscheme('torchlight-dusk')
-vim.cmd.colorscheme('material-deep-ocean')
--- vim.cmd.colorscheme('wheat-fox')
+vim.cmd.colorscheme('srcery')
 
 return C
