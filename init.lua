@@ -122,8 +122,8 @@ end
 
 vim.g.compile_mode = {
     default_command = {
-        c = 'cmake --build build',
-        cpp = 'cmake --build build',
+        c = 'build.bat',
+        cpp = 'build.bat',
         odin = 'odin build . -debug',
         go = 'go build .',
         lua = 'lovec .', -- love2d
@@ -137,7 +137,6 @@ vim.g.compile_mode = {
 }
 
 vim.keymap.set('n', '<leader>r', '<cmd>Recompile<CR>', { desc = 'Recompile' })
-
 vim.keymap.set('n', '<leader>dn', '<cmd>NextError<CR>', { desc = 'Next Error' })
 vim.keymap.set('n', '<leader>dp', '<cmd>PrevError<CR>', { desc = 'Previous Error' })
 

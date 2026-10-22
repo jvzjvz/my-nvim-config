@@ -15,8 +15,9 @@ local colorschemes = {
     {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
     'https://github.com/sainnhe/gruvbox-material',
     'https://github.com/zenbones-theme/zenbones.nvim',
-    -- 'https://github.com/Oniup/ignite.nvim',
+    'https://github.com/Oniup/ignite.nvim',
     'https://github.com/deparr/tairiki.nvim',
+    'https://github.com/fenetikm/falcon',
     -- 'https://github.com/metalelf0/kintsugi-nvim',
     'https://github.com/saeeedhany/parchment.nvim',
     'https://github.com/jackplus-xyz/binary.nvim',
@@ -32,7 +33,6 @@ local colorschemes = {
     'https://github.com/Mofiqul/vscode.nvim',
     -- 'https://github.com/EdenEast/nightfox.nvim',
     -- 'https://github.com/marekh19/meowsoot.nvim',
-    -- 'https://github.com/kotsuban/nekomi.nvim',
     -- 'https://github.com/ATTron/bebop.nvim',
     'https://github.com/catppuccin/nvim',
     'https://github.com/rebelot/kanagawa.nvim',
@@ -45,7 +45,6 @@ local colorschemes = {
     -- 'https://github.com/AvengeMedia/base46',
     -- 'https://github.com/thallada/farout.nvim',
     -- 'https://github.com/Verf/deepwhite.nvim',
-    'https://github.com/embark-theme/vim',
     -- 'https://github.com/oskarnurm/koda.nvim',
     'https://github.com/uhs-robert/oasis.nvim',
     'https://github.com/sedgholm/terracotta.nvim',
@@ -72,7 +71,6 @@ local colorschemes = {
     'https://github.com/kepano/flexoki-neovim',
     -- 'https://github.com/tinted-theming/tinted-vim',
     'https://github.com/dchinmay2/alabaster.nvim',
-    -- 'https://github.com/Mofiqul/adwaita.nvim',
     'https://github.com/Lokaltog/monotone.nvim',
     'https://github.com/danishprakash/vim-yami',
     'https://github.com/slugbyte/lackluster.nvim',
@@ -208,20 +206,20 @@ require('catppuccin').setup {
 require('everforest').setup {
     background = 'hard',
     ui_contrast = 'high',
-    on_highlights = function(hl, palette)
-        hl.Delimiter = { fg = palette.grey1 }
-        hl['@tag.delimiter'] = { fg = palette.grey1 }
-        hl['@punctuation.bracket'] = { fg = palette.grey1 }
-    end,
-    colours_override = function(palette)
-        palette.bg0 = '#000000'
-        -- palette.bg0 = '#111111'
-        palette.bg1 = '#2d353b'
-        palette.bg2 = '#2d353b'
-        palette.bg3 = '#2d353b'
-        palette.bg4 = '#2d353b'
-        palette.bg5 = '#2d353b'
-    end
+    -- on_highlights = function(hl, palette)
+    --     hl.Delimiter = { fg = palette.grey1 }
+    --     hl['@tag.delimiter'] = { fg = palette.grey1 }
+    --     hl['@punctuation.bracket'] = { fg = palette.grey1 }
+    -- end,
+    -- colours_override = function(palette)
+    --     palette.bg0 = '#000000'
+    --     -- palette.bg0 = '#111111'
+    --     palette.bg1 = '#2d353b'
+    --     palette.bg2 = '#2d353b'
+    --     palette.bg3 = '#2d353b'
+    --     palette.bg4 = '#2d353b'
+    --     palette.bg5 = '#2d353b'
+    -- end
 }
 
 require('black-metal').setup {
@@ -324,7 +322,7 @@ ayu.setup {
 
 require('torchlight').setup {
     opts = {
-        contrast = 'hard'
+        contrast = 'stark'
     }
 }
 
@@ -377,6 +375,6 @@ require('material').setup {
     },
 }
 
-vim.cmd.colorscheme('srcery')
+vim.cmd.colorscheme('torchlight-dusk')
 
 return C
