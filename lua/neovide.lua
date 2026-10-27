@@ -1,22 +1,37 @@
 local N = {}
 
 -- vim.g.neovide_fullscreen = true
+vim.g.neovide_refresh_rate = 144
 vim.g.neovide_hide_mouse_when_typing = true
 
 -- vim.o.guifont = 'JetBrainsMono Nerd Font Mono:h12'
 -- vim.o.guifont = 'LythMono Nerd Font:h13'
 -- vim.o.guifont = 'FiraCode Nerd Font:h16'
-vim.o.guifont = 'Hack Nerd Font Mono:h12'
+-- vim.o.guifont = 'Hack Nerd Font Mono:h12:b'
+-- vim.o.guifont = 'Hack Nerd Font Mono:h12'
+vim.o.guifont = 'CaskaydiaCove Nerd Font Mono:h14'
 -- vim.o.guifont = 'Maple Mono:h12:medium'
+-- vim.o.guifont = 'Mononoki Nerd Font Mono:h12'
+-- vim.o.guifont = 'Iosevka Nerd Font:h13'
 
 -- vim.g.neovide_opacity = 0.8
 
 vim.api.nvim_set_keymap("n", "<F11>", ":lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1,  1.0)<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1,  0.1)<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_transparency = math.min(vim.g.neovide_transparency + 0.05, 1.0)<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-_>", ":lua vim.g.neovide_transparency = math.max(vim.g.neovide_transparency - 0.05, 0.0)<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.5<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-)>", ":lua vim.g.neovide_transparency = 0.9<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1,  1.0)<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1,  0.1)<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_transparency = math.min(vim.g.neovide_transparency + 0.05, 1.0)<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-_>", ":lua vim.g.neovide_transparency = math.max(vim.g.neovide_transparency - 0.05, 0.0)<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.5<CR>", { silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-)>", ":lua vim.g.neovide_transparency = 0.9<CR>", { silent = true })
 
+vim.g.neovide_scale_factor = 1.0
+local change_scale_factor = function(delta)
+  vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+end
+vim.keymap.set("n", "<C-=>", function()
+  change_scale_factor(1.25)
+end)
+vim.keymap.set("n", "<C-->", function()
+  change_scale_factor(1/1.25)
+end)
 return N

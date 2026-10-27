@@ -21,8 +21,6 @@ local colorschemes = {
     -- 'https://github.com/metalelf0/kintsugi-nvim',
     'https://github.com/saeeedhany/parchment.nvim',
     'https://github.com/jackplus-xyz/binary.nvim',
-    -- 'https://github.com/drewxs/ash.nvim',
-    -- 'https://github.com/amedoeyes/eyes.nvim',
     'https://github.com/mrpbennett/vault',
     'https://github.com/phha/zenburn.nvim',
     -- 'https://github.com/cappyzawa/akari-nvim',
@@ -43,16 +41,12 @@ local colorschemes = {
     -- 'https://github.com/sudoscrawl/tokyo-dark.nvim',
     -- 'https://github.com/itsthomashere/grace.nvim',
     -- 'https://github.com/AvengeMedia/base46',
-    -- 'https://github.com/thallada/farout.nvim',
     -- 'https://github.com/Verf/deepwhite.nvim',
     -- 'https://github.com/oskarnurm/koda.nvim',
     'https://github.com/uhs-robert/oasis.nvim',
     'https://github.com/sedgholm/terracotta.nvim',
     'https://github.com/aidyak/tokusa',
     'https://github.com/jpwol/thorn.nvim',
-    -- 'https://github.com/YajanaRao/forestflower',
-    -- 'https://github.com/sample-usr/rakis.nvim',
-    -- 'https://github.com/shrikecode/kyotonight.vim',
     'https://github.com/kyzabuilds/xeno.nvim',
     -- 'https://github.com/saran13raj/wheat-fox.nvim',
     'https://github.com/Nyvyme/naysayer.nvim',
@@ -64,14 +58,14 @@ local colorschemes = {
     -- 'https://github.com/arturgoms/moonbow.nvim',
     -- 'https://github.com/tomstolarczuk/rider.nvim',
     'https://github.com/Shatur/neovim-ayu',
-    'https://github.com/aadielpr/bono.nvim',
+    -- 'https://github.com/aadielpr/bono.nvim',
     'https://github.com/linhusp/spore.nvim',
     'https://github.com/rose-pine/neovim',
     'https://github.com/folke/tokyonight.nvim',
     'https://github.com/kepano/flexoki-neovim',
     -- 'https://github.com/tinted-theming/tinted-vim',
     'https://github.com/dchinmay2/alabaster.nvim',
-    'https://github.com/Lokaltog/monotone.nvim',
+    -- 'https://github.com/Lokaltog/monotone.nvim',
     'https://github.com/danishprakash/vim-yami',
     'https://github.com/slugbyte/lackluster.nvim',
     'https://github.com/D0nw0r/dark2026.nvim',
@@ -83,6 +77,10 @@ local colorschemes = {
     'https://codeberg.org/navahas/sanzo.nvim',
     'https://github.com/henit-chobisa/koala-neovim',
     'https://github.com/ilof2/posterpole.nvim',
+    'https://github.com/vague-theme/vague.nvim',
+    'https://github.com/Aejkatappaja/cendre',
+    'https://github.com/kryptamine/gruber-darker-renaissance',
+    -- 'https://github.com/Lokaltog/vim-monotone'
 }
 
 vim.pack.add(colorschemes)
@@ -230,11 +228,11 @@ require('black-metal').setup {
 -- local binary_yellow = "#ffb400"
 -- local binary_brown = "#9E8767"
 -- local binary_offwhite = "#C0B19B"
--- require('binary').setup {
---     colors = {
---           bg = binary_offwhite,
---         }
---     }
+require('binary').setup {
+    colors = {
+          bg = '#d0ae85'
+        }
+    }
 
 
 require('gruvbox-minimal').setup {
@@ -375,6 +373,6 @@ require('material').setup {
     },
 }
 
-vim.cmd.colorscheme('torchlight-dusk')
+vim.cmd.colorscheme('srcery')
 
 return C
