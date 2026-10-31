@@ -1,15 +1,14 @@
 local N = {}
 
--- vim.g.neovide_fullscreen = true
+vim.g.neovide_fullscreen = true
 vim.g.neovide_refresh_rate = 144
 vim.g.neovide_hide_mouse_when_typing = true
 
 -- vim.o.guifont = 'JetBrainsMono Nerd Font Mono:h12'
 -- vim.o.guifont = 'LythMono Nerd Font:h13'
 -- vim.o.guifont = 'FiraCode Nerd Font:h16'
--- vim.o.guifont = 'Hack Nerd Font Mono:h12:b'
--- vim.o.guifont = 'Hack Nerd Font Mono:h12'
-vim.o.guifont = 'CaskaydiaCove Nerd Font Mono:h14'
+vim.o.guifont = 'Hack Nerd Font Mono:h12'
+-- vim.o.guifont = 'CaskaydiaCove Nerd Font Mono:h14'
 -- vim.o.guifont = 'Maple Mono:h12:medium'
 -- vim.o.guifont = 'Mononoki Nerd Font Mono:h12'
 -- vim.o.guifont = 'Iosevka Nerd Font:h13'

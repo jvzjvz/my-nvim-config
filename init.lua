@@ -76,7 +76,7 @@ local autocomplete_level = {
     lsp = "lsp"
 };
 
-vim.g.autocomplete_level = autocomplete_level.none;
+vim.g.autocomplete_level = autocomplete_level.lsp;
 
 if vim.g.autocomplete_level == autocomplete_level.lsp then
     require("lsp")
@@ -248,8 +248,8 @@ map('n', 'gc', function()
   require('treesitter-context').go_to_context(vim.v.count1)
 end, { silent = true })
 
-map({ 'n' }, '<leader>c', 'gcc', { remap = true })
-map({ 'v' }, '<leader>c', 'gc', { remap = true })
+-- map({ 'n' }, '<leader>c', 'gcc', { remap = true })
+-- map({ 'v' }, '<leader>c', 'gc', { remap = true })
 
 -- tab & shift tab for buffer switching
 map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })

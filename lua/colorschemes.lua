@@ -2,6 +2,7 @@ local C = {}
 
 local colorschemes = {
     'https://github.com/rktjmp/lush.nvim', -- common dependency and for custom theme making
+    'https://github.com/jvzjvz/lapis.nvim',
     'https://github.com/jvzjvz/dragon.nvim',
     'https://github.com/jvzjvz/gild.nvim',
     'https://github.com/jvzjvz/rose_dark.nvim',
@@ -373,6 +374,6 @@ require('material').setup {
     },
 }
 
-vim.cmd.colorscheme('srcery')
+vim.cmd.colorscheme('lapis')
 
 return C

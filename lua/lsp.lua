@@ -6,7 +6,6 @@ local lsp_plugins = {
     'https://github.com/mason-org/mason-lspconfig.nvim',
     {
         src = 'https://github.com/Saghen/blink.cmp',
-        version = 'v1',
         dependencies = {
             'https://github.com/rafamadriz/friendly-snippets'
         },
@@ -20,9 +19,17 @@ require('mason').setup()
 require('blink.cmp').setup {
     keymap = {
         preset = 'default',
+        ['<C-n>'] = {
+            function(cmp) return cmp.select_next({ on_ghost_text = true }) end,
+            'fallback',
+        },
 
-        ['<Tab>'] = { 'select_next', 'fallback' },
-        ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        ['<C-p>'] = {
+            function(cmp) return cmp.select_prev({ on_ghost_text = true }) end,
+            'fallback',
+        },
+        -- ['<Tab>'] = { 'select_next', 'fallback' },
+        -- ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<CR>'] = { 'accept', 'fallback' },
         ['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
     },
@@ -34,10 +41,11 @@ require('blink.cmp').setup {
 
         menu = {
             border = 'rounded',
+            auto_show = false
         },
 
         ghost_text = {
-            enabled = false,
+            enabled = true,
         },
     },
 
@@ -53,7 +61,12 @@ require('blink.cmp').setup {
         nerd_font_variant = 'mono'
     },
 
-    fuzzy = { implementation = 'prefer_rust_with_warning' },
+    fuzzy = {
+        implementation = 'prefer_rust_with_warning',
+        prebuilt_binaries = {
+            force_version = 'v*'
+        }
+    },
 }
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -78,9 +91,10 @@ vim.lsp.config('clangd', {
     capabilities = capabilities,
     cmd = {
         'clangd',
-        '--compile-commands-dir=build',
+        -- '--compile-commands-dir=build',
         '--background-index',
-        '--query-driver=C:/ProgramData/mingw64/mingw64/bin/gcc.exe'
+        -- '--query-driver=C:/ProgramData/mingw64/mingw64/bin/gcc.exe',
+        '--query-driver=C:/msys64/mingw64/bin/gcc.exe'
     },
 })
 
