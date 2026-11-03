@@ -17,6 +17,11 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak = '↪ '
+vim.opt.breakindentopt = 'shift:2'
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -26,11 +31,8 @@ vim.opt.background = 'dark'
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
--- vim.opt.guicursor = "n-v-c:block,i:block"
-
 vim.opt.smoothscroll = true
-vim.opt.wrap = true
-vim.opt.showbreak = '↪ '
+-- vim.opt.guicursor = "n-v-c:block,i:block"
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -90,6 +92,8 @@ if vim.g.autocomplete_level == autocomplete_level.lsp then
     })
 
     vim.opt.signcolumn = 'yes'
+
+    vim.opt.autocomplete = false
 
 elseif vim.g.autocomplete_level == autocomplete_level.basic then
     vim.opt.autocomplete = true
