@@ -295,24 +295,24 @@ vim.g.gruvbox_material_colors_override = {
     -- bg_visual = { '#3a3a3a', '239' },
 }
 
-require('nordic').setup {
-    on_palette = function (palette)
-        palette.gray0 = '#111111'
-    end
-}
+-- require('nordic').setup {
+--     on_palette = function (palette)
+--         palette.gray0 = '#111111'
+--     end
+-- }
 
-require('thorn').setup {
-    on_highlights = function (hl, pa)
-        hl.Normal.bg = '#0C1812'
-        hl.NormalNC.bg = '#0C1812'
-        hl.SignColumn.bg = '#0C1812'
-        hl.VertSplit.fg = '#0C1812'
-        hl.VertSplit.bg = '#0C1812'
-        hl.WinSeparator.fg = pa.bg
-        hl.WinSeparator.bg = '#0C1812'
-        -- hl.WinSeparator.fg = pa.green_1
-    end
-}
+-- require('thorn').setup {
+--     on_highlights = function (hl, pa)
+--         hl.Normal.bg = '#0C1812'
+--         hl.NormalNC.bg = '#0C1812'
+--         hl.SignColumn.bg = '#0C1812'
+--         hl.VertSplit.fg = '#0C1812'
+--         hl.VertSplit.bg = '#0C1812'
+--         hl.WinSeparator.fg = pa.bg
+--         hl.WinSeparator.bg = '#0C1812'
+--         -- hl.WinSeparator.fg = pa.green_1
+--     end
+-- }
 
 local ayu = require('ayu')
 local ayu_colors = require('ayu.colors')

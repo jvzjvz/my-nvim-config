@@ -45,7 +45,19 @@ vim.opt.showmode = false
 vim.opt.confirm = true
 vim.opt.signcolumn = 'no'
 
+-- local PLUGIN_LOAD_TABLE = {}
+--
+-- function load_plugin(link, name, load_func)
+--     vim.pack.add(link)
+--     if name ~= nil and load_func ~= nil then
+--         PLUGIN_LOAD_TABLE[name] = load_func
+--         require(name).setup{
+--         }
+--     end
+-- end
+
 require('colorschemes')
+require("lsp")
 
 local qol_extensions = {
     'https://github.com/nvim-lua/plenary.nvim',
@@ -73,56 +85,15 @@ require('which-key').setup {}
 --     -- }
 -- }
 
-local autocomplete_level = {
-    none = "none",
-    basic = "basic",
-    lsp = "lsp"
-};
+vim.opt.signcolumn = 'yes'
 
-vim.g.autocomplete_level = autocomplete_level.lsp;
-
-if vim.g.autocomplete_level == autocomplete_level.lsp then
-    require("lsp")
-
-    vim.diagnostic.config({
-        float = { border = "rounded" },
-        virtual_text = {
-            spacing = 4,
-            prefix = "●",
-        },
-    })
-
-    vim.opt.signcolumn = 'yes'
-
-    vim.opt.autocomplete = false
-
-elseif vim.g.autocomplete_level == autocomplete_level.basic then
-    vim.opt.autocomplete = true
-    vim.opt.completeopt = { "menu", "menuone", "noselect" }
-    vim.keymap.set('i', '<Tab>', function()
-        if vim.fn.pumvisible() == 1 then
-            return '<C-n>'
-        else
-            return '<Tab>'
-        end
-    end, { expr = true })
-
-    vim.keymap.set('i', '<S-Tab>', function()
-        if vim.fn.pumvisible() == 1 then
-            return '<C-p>'
-        else
-            return '<S-Tab>'
-        end
-    end, { expr = true })
-
-    vim.keymap.set('i', '<CR>', function()
-        if vim.fn.pumvisible() == 1 then
-            return '<C-y>'
-        else
-            return '<CR>'
-        end
-    end, { expr = true })
-end
+vim.diagnostic.config({
+    float = { border = "rounded" },
+    virtual_text = {
+        spacing = 4,
+        prefix = "●",
+    },
+})
 
 vim.g.compile_mode = {
     default_command = {
