@@ -13,23 +13,22 @@ local colorschemes = {
     'https://github.com/wtfox/jellybeans.nvim',
     'https://github.com/harivansh-afk/cozybox.nvim',
     'https://github.com/neanias/everforest-nvim',
-    {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
+    -- {src = 'https://github.com/Everblush/nvim', name = 'everblush-main'},
     'https://github.com/sainnhe/gruvbox-material',
     'https://github.com/zenbones-theme/zenbones.nvim',
-    'https://github.com/Oniup/ignite.nvim',
     'https://github.com/deparr/tairiki.nvim',
-    'https://github.com/fenetikm/falcon',
+    -- 'https://github.com/fenetikm/falcon',
     -- 'https://github.com/metalelf0/kintsugi-nvim',
     'https://github.com/saeeedhany/parchment.nvim',
     'https://github.com/jackplus-xyz/binary.nvim',
     'https://github.com/mrpbennett/vault',
-    'https://github.com/phha/zenburn.nvim',
+    -- 'https://github.com/phha/zenburn.nvim',
     -- 'https://github.com/cappyzawa/akari-nvim',
     'https://github.com/dybdeskarphet/gruvbox-minimal.nvim',
     'https://github.com/AlexvZyl/nordic.nvim',
     'https://github.com/Sly-Harvey/radium.nvim',
     -- 'https://github.com/xeind/nightingale.nvim',
-    'https://github.com/Mofiqul/vscode.nvim',
+    -- 'https://github.com/Mofiqul/vscode.nvim',
     -- 'https://github.com/EdenEast/nightfox.nvim',
     -- 'https://github.com/marekh19/meowsoot.nvim',
     -- 'https://github.com/ATTron/bebop.nvim',
@@ -47,7 +46,7 @@ local colorschemes = {
     'https://github.com/uhs-robert/oasis.nvim',
     'https://github.com/sedgholm/terracotta.nvim',
     'https://github.com/aidyak/tokusa',
-    'https://github.com/jpwol/thorn.nvim',
+    -- 'https://github.com/jpwol/thorn.nvim',
     'https://github.com/kyzabuilds/xeno.nvim',
     -- 'https://github.com/saran13raj/wheat-fox.nvim',
     'https://github.com/Nyvyme/naysayer.nvim',
@@ -64,7 +63,7 @@ local colorschemes = {
     'https://github.com/rose-pine/neovim',
     'https://github.com/folke/tokyonight.nvim',
     'https://github.com/kepano/flexoki-neovim',
-    -- 'https://github.com/tinted-theming/tinted-vim',
+    'https://github.com/tinted-theming/tinted-vim',
     'https://github.com/dchinmay2/alabaster.nvim',
     -- 'https://github.com/Lokaltog/monotone.nvim',
     'https://github.com/danishprakash/vim-yami',
@@ -75,12 +74,12 @@ local colorschemes = {
     'https://github.com/bluz71/vim-moonfly-colors',
     -- 'https://github.com/saran13raj/wheat-fox.nvim',
     'https://github.com/zhiwei-ou/grayveil.nvim',
-    'https://codeberg.org/navahas/sanzo.nvim',
+    -- 'https://codeberg.org/navahas/sanzo.nvim',
     'https://github.com/henit-chobisa/koala-neovim',
-    'https://github.com/ilof2/posterpole.nvim',
     'https://github.com/vague-theme/vague.nvim',
-    'https://github.com/Aejkatappaja/cendre',
     'https://github.com/kryptamine/gruber-darker-renaissance',
+    'https://github.com/stancl/alabaster-rose.nvim',
+    -- { src = 'https://github.com/mandalay-rp/jellybeans-lua.nvim', name = 'jellybeans-lua' }
     -- 'https://github.com/Lokaltog/vim-monotone'
 }
 
@@ -221,6 +220,13 @@ require('everforest').setup {
     -- end
 }
 
+require('lackluster').setup {
+    tweak_highlight = {
+        Normal = { bg = '#000000' },
+        SignColumn = { bg = '#000000' }
+    }
+}
+
 require('black-metal').setup {
     trve = false
 }
@@ -264,14 +270,14 @@ Normal = { bg = '#111111' }
 -- }
 --
 
-require('rose-pine').setup {
-    variant = 'moon',
-    palette = {
-        moon = {
-            base = '#000000'
-        }
-    }
-}
+-- require('rose-pine').setup {
+--     variant = 'moon',
+--     palette = {
+--         moon = {
+--             base = '#000000'
+--         }
+--     }
+-- }
 
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_float_style = 'dim'
@@ -370,8 +376,18 @@ require('material').setup {
         ['@constant.macro'] = { fg = '#B0C9FF' },
         -- ['@constant.macro'] = { fg = '#71C6E7' },
         ['@string.escape'] = { fg = '#F07178' },
-
+        Normal = { fg = '#000000' },
+        NormalNC = { fg = '#000000' }
     },
+}
+
+require('parchment').setup {
+    styles = {
+        Normal = { bg = '#000000' },
+        NormalNC = { bg = '#000000' },
+        VertSplit = { fg = '#000000' },
+        Visual = { reverse = true }
+    }
 }
 
 vim.cmd.colorscheme('lapis')

@@ -31,6 +31,7 @@ vim.opt.background = 'dark'
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
+vim.opt.foldcolumn = '1'
 vim.opt.smoothscroll = true
 -- vim.opt.guicursor = "n-v-c:block,i:block"
 
@@ -128,7 +129,7 @@ vim.g.compile_mode = {
         c = 'build.bat',
         cpp = 'build.bat',
         odin = 'odin build . -debug',
-        go = 'go build .',
+        go = 'go build',
         lua = 'lovec .', -- love2d
         zig = 'zig build',
         rust = 'cargo build',
@@ -141,8 +142,8 @@ vim.g.compile_mode = {
 }
 
 vim.keymap.set('n', '<leader>r', '<cmd>Recompile<CR>', { desc = 'Recompile' })
-vim.keymap.set('n', '<leader>dn', '<cmd>NextError<CR>', { desc = 'Next Error' })
-vim.keymap.set('n', '<leader>dp', '<cmd>PrevError<CR>', { desc = 'Previous Error' })
+vim.keymap.set('n', 'dn', '<cmd>NextError<CR>', { desc = 'Next Error' })
+vim.keymap.set('n', 'dN', '<cmd>PrevError<CR>', { desc = 'Previous Error' })
 
 -- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics'} )
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -156,6 +157,8 @@ vim.keymap.set('n', '<leader><Space>', builtin.buffers, { desc = 'Telescope buff
 vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>c', builtin.colorscheme, { desc = 'Telescope colorscheme' })
 vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, { desc = 'Telescope Current Buffer Symbols' })
+vim.keymap.set('n', '<leader>S', builtin.lsp_document_symbols, { desc = 'Telescope Workspace Symbols' })
+vim.keymap.set('n', '<leader>r', builtin.lsp_references, { desc = 'Telescope References' })
 vim.keymap.set('n', '<leader>d', builtin.diagnostics, { desc = 'Telescope Diagnostics' })
 -- vim.keymap.set('n', '<leader>S', builtin.tags, { desc = 'Telescope all tags' })
 -- vim.keymap.set('n', '<leader>s', builtin.current_buffer_tags, { desc = 'Telescope buffer tags' })
