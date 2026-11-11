@@ -402,6 +402,7 @@ local tinted_default_config = {
 require('tinted-nvim').setup {
     -- default_scheme = 'base24-twilight',
     default_scheme = 'base24-arthur',
+    -- default_scheme = 'base24-ayu-dark',
     -- default_scheme = 'base24-lumina-parchment-light',
     -- default_scheme = 'base24-sea-shells',
     -- default_scheme = 'base16-pastelon-de-amarillos',
@@ -412,7 +413,9 @@ require('tinted-nvim').setup {
     -- default_scheme = 'base24-earthsong',
     schemes = {
         ['base16-pastelon-de-amarillos-dark'] = tinted_default_config,
-        ['base24-arthur'] = tinted_default_config
+        ['base24-arthur'] = tinted_default_config,
+        ['base24-ayu-dark'] = tinted_default_config,
+        ['base24-fun-forrest'] = tinted_default_config,
     }
 }
 

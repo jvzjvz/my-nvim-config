@@ -33,7 +33,13 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = false
 vim.opt.foldcolumn = '1'
 vim.opt.smoothscroll = true
--- vim.opt.guicursor = "n-v-c:block,i:block"
+-- vim.opt.guicursor = 'a:block'
+vim.opt.guicursor = {
+    'n-v-c:block-Cursor',
+    -- 'n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
+    'i-ci:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
+    'r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100'
+}
 
 vim.opt.clipboard = 'unnamedplus'
 
