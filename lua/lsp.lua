@@ -4,18 +4,16 @@ local lsp_plugins = {
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/mason-org/mason.nvim',
     'https://github.com/mason-org/mason-lspconfig.nvim',
-    {
-        src = 'https://github.com/Saghen/blink.cmp',
-        dependencies = {
-            'https://github.com/rafamadriz/friendly-snippets'
-        },
-    },
+    -- 'https://github.com/Saghen/blink.lib',
+    { src = 'https://github.com/Saghen/blink.cmp', version = 'v1.9.1' },
 }
 
 vim.pack.add(lsp_plugins)
 
 require('mason').setup()
 
+-- local cmp = require('blink.cmp')
+-- require('blink.cmp').build():pwait()
 require('blink.cmp').setup {
     keymap = {
         preset = 'default',
@@ -64,7 +62,8 @@ require('blink.cmp').setup {
     fuzzy = {
         implementation = 'prefer_rust_with_warning',
         prebuilt_binaries = {
-            force_version = 'v*'
+            -- force_version = 'v*'
+            force_version = 'v1.9.1'
         }
     },
 }

@@ -63,7 +63,8 @@ local colorschemes = {
     'https://github.com/rose-pine/neovim',
     'https://github.com/folke/tokyonight.nvim',
     'https://github.com/kepano/flexoki-neovim',
-    'https://github.com/tinted-theming/tinted-vim',
+    -- 'https://github.com/tinted-theming/tinted-vim',
+    'https://github.com/tinted-theming/tinted-nvim',
     'https://github.com/dchinmay2/alabaster.nvim',
     -- 'https://github.com/Lokaltog/monotone.nvim',
     'https://github.com/danishprakash/vim-yami',
@@ -79,6 +80,7 @@ local colorschemes = {
     'https://github.com/vague-theme/vague.nvim',
     'https://github.com/kryptamine/gruber-darker-renaissance',
     'https://github.com/stancl/alabaster-rose.nvim',
+    'https://github.com/st-eez/osaka-jade.nvim',
     -- { src = 'https://github.com/mandalay-rp/jellybeans-lua.nvim', name = 'jellybeans-lua' }
     -- 'https://github.com/Lokaltog/vim-monotone'
 }
@@ -390,6 +392,30 @@ require('parchment').setup {
     }
 }
 
-vim.cmd.colorscheme('lapis')
+local tinted_default_config = {
+    base00 = '#000000',
+    overrides = function (palette)
+        Visual = { reverse = true }
+    end
+}
+
+require('tinted-nvim').setup {
+    -- default_scheme = 'base24-twilight',
+    default_scheme = 'base24-arthur',
+    -- default_scheme = 'base24-lumina-parchment-light',
+    -- default_scheme = 'base24-sea-shells',
+    -- default_scheme = 'base16-pastelon-de-amarillos',
+    -- default_scheme = 'base16-pastelon-de-amarillos-dark',
+    -- default_scheme = 'base24-ic-orange-ppl',
+    -- default_scheme = 'base24-fun-forrest',
+    -- default_scheme = 'base24-floraverse',
+    -- default_scheme = 'base24-earthsong',
+    schemes = {
+        ['base16-pastelon-de-amarillos-dark'] = tinted_default_config,
+        ['base24-arthur'] = tinted_default_config
+    }
+}
+
+-- vim.cmd.colorscheme('lapis')
 
 return C
