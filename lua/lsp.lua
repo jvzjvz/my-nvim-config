@@ -86,15 +86,33 @@ require('mason-lspconfig').setup({
     ensure_installed = installed_lsps,
 })
 
+for _, server in ipairs(installed_lsps) do
+    vim.lsp.config(server, {
+        capabilities = capabilities,
+    })
+end
+
 vim.lsp.config('clangd', {
     capabilities = capabilities,
     cmd = {
         'clangd',
         -- '--compile-commands-dir=build',
         '--background-index',
-        -- '--query-driver=C:/ProgramData/mingw64/mingw64/bin/gcc.exe',
         '--query-driver=C:/msys64/mingw64/bin/gcc.exe'
     },
+})
+
+vim.lsp.config('pylsp', {
+    capabilities = capabilities,
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    ignore = { 'E501', 'E305', 'E302' }
+                }
+            }
+        }
+    }
 })
 
 vim.lsp.config('lua_ls', {
@@ -110,12 +128,6 @@ vim.lsp.config('lua_ls', {
         },
     },
 })
-
-for _, server in ipairs({ 'ols', 'gopls', 'zls' }) do
-    vim.lsp.config(server, {
-        capabilities = capabilities,
-    })
-end
 
 -- Godot LSP (Godot editor must be running)
 vim.lsp.config('godot', {
