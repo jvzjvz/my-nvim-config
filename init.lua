@@ -11,7 +11,7 @@ vim.opt.timeoutlen = 300
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- vim.opt.cmdheight = 0
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2
 vim.opt.termguicolors = true
 vim.opt.expandtab = true
 vim.opt.autoindent = true
@@ -33,13 +33,13 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = false
 vim.opt.foldcolumn = '1'
 vim.opt.smoothscroll = true
--- vim.opt.guicursor = 'a:block'
-vim.opt.guicursor = {
-    'n-v-c:block-Cursor',
-    -- 'n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
-    'i-ci:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
-    'r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100'
-}
+vim.opt.guicursor = 'a:block'
+-- vim.opt.guicursor = {
+--     'n-v-c:block-Cursor',
+--     -- 'n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
+--     'i-ci:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100',
+--     'r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100'
+-- }
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -95,10 +95,12 @@ vim.opt.signcolumn = 'yes'
 
 vim.diagnostic.config({
     float = { border = "rounded" },
-    virtual_text = {
-        spacing = 4,
-        prefix = "●",
-    },
+    -- virtual_text = {
+    --     spacing = 4,
+    --     prefix = "●",
+    -- },
+    virtual_text = true
+    -- virtual_lines = true
 })
 
 vim.g.compile_mode = {
@@ -118,9 +120,9 @@ vim.g.compile_mode = {
     -- use_pseudo_terminal = true,
 }
 
-vim.keymap.set('n', '<leader>r', '<cmd>Recompile<CR>', { desc = 'Recompile' })
-vim.keymap.set('n', 'dn', '<cmd>NextError<CR>', { desc = 'Next Error' })
-vim.keymap.set('n', 'dN', '<cmd>PrevError<CR>', { desc = 'Previous Error' })
+vim.keymap.set('n', '<leader>R', '<cmd>Recompile<CR>', { desc = 'CompileMode (Re)compile' })
+vim.keymap.set('n', 'dn', '<cmd>NextError<CR>', { desc = 'CompileMode Next Error' })
+vim.keymap.set('n', 'dN', '<cmd>PrevError<CR>', { desc = 'CompileMode Previous Error' })
 
 -- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics'} )
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -183,9 +185,17 @@ vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Oil - Open parent directory' 
     -- require('marks').setup {}
 
 require('lualine').setup {
-    -- sections = {
-        --
-        -- }
+    options = {
+        theme = function ()
+            local scheme = vim.g.colors_name
+            for _, pre in ipairs({'base16-', 'base24-', 'tinted'}) do
+                if string.find(scheme, pre) then
+                    return 'tinted'
+                end
+            end
+            return 'auto'
+        end
+    }
 }
 
     -- Treesitter

@@ -394,14 +394,15 @@ require('parchment').setup {
 
 local tinted_default_config = {
     base00 = '#000000',
-    overrides = function (palette)
-        Visual = { reverse = true }
-    end
 }
+
+-- local tinted_default_scheme = 'base24-arthur'
+local tinted_default_scheme = 'base16-terracotta-dark'
 
 require('tinted-nvim').setup {
     -- default_scheme = 'base24-twilight',
-    default_scheme = 'base24-arthur',
+    default_scheme = tinted_default_scheme,
+    -- default_scheme = 'base16-terracotta-dark',
     -- default_scheme = 'base24-ayu-dark',
     -- default_scheme = 'base24-lumina-parchment-light',
     -- default_scheme = 'base24-sea-shells',
@@ -411,14 +412,28 @@ require('tinted-nvim').setup {
     -- default_scheme = 'base24-fun-forrest',
     -- default_scheme = 'base24-floraverse',
     -- default_scheme = 'base24-earthsong',
+
+    -- highlights = {
+    --     overrides = function (palette)
+    --         -- if tinted_default_scheme == 'base16-terracotta-dark' then
+    --         --     return {
+    --         --         ['@variable.member'] = '#FFFFFF'
+    --         --     }
+    --         -- end
+    --         --
+    --         return {}
+    --     end,
+    -- },
+
     schemes = {
         ['base16-pastelon-de-amarillos-dark'] = tinted_default_config,
         ['base24-arthur'] = tinted_default_config,
         ['base24-ayu-dark'] = tinted_default_config,
         ['base24-fun-forrest'] = tinted_default_config,
+        ['base16-terracotta-dark'] = tinted_default_config
     }
 }
 
--- vim.cmd.colorscheme('lapis')
+vim.cmd.colorscheme(tinted_default_scheme)
 
 return C
