@@ -82,6 +82,15 @@ local qol_extensions = {
 }
 vim.pack.add(qol_extensions)
 
+
+require('treesitter-context').setup {
+    separator = '-',
+}
+
+vim.keymap.set('n', '<Space>C', function()
+    vim.cmd('TSContext toggle')
+end, { desc = 'Toggle TreeSitter Context'})
+
 require('which-key').setup {}
 
 -- require('ibl').setup {
@@ -238,9 +247,9 @@ local ts = require('nvim-treesitter')
 
 local map = vim.keymap.set
 
-map('n', 'gc', function()
-  require('treesitter-context').go_to_context(vim.v.count1)
-end, { silent = true })
+-- map('n', 'gc', function()
+--   require('treesitter-context').go_to_context(vim.v.count1)
+-- end, { silent = true })
 
 -- map({ 'n' }, '<leader>c', 'gcc', { remap = true })
 -- map({ 'v' }, '<leader>c', 'gc', { remap = true })
