@@ -413,24 +413,29 @@ require('tinted-nvim').setup {
     -- default_scheme = 'base24-floraverse',
     -- default_scheme = 'base24-earthsong',
 
-    -- highlights = {
-    --     overrides = function (palette)
-    --         -- if tinted_default_scheme == 'base16-terracotta-dark' then
-    --         --     return {
-    --         --         ['@variable.member'] = '#FFFFFF'
-    --         --     }
-    --         -- end
-    --         --
-    --         return {}
-    --     end,
-    -- },
+    highlights = {
+        overrides = function (palette)
+            -- if tinted_default_scheme == 'base16-terracotta-dark' then
+            --     return {
+            --         ['@variable.member'] = '#FFFFFF'
+            --     }
+            -- end
+            --
+            return {
+                Visual = { reverse = true }
+            }
+        end,
+    },
 
     schemes = {
         ['base16-pastelon-de-amarillos-dark'] = tinted_default_config,
         ['base24-arthur'] = tinted_default_config,
         ['base24-ayu-dark'] = tinted_default_config,
         ['base24-fun-forrest'] = tinted_default_config,
-        ['base16-terracotta-dark'] = tinted_default_config
+        ['base16-terracotta-dark'] = tinted_default_config,
+        ['base16-woodland'] = tinted_default_config,
+        ['base24-birds-of-paradise'] = tinted_default_config,
+        ['base24-lumina-olive-dark'] = tinted_default_config,
     }
 }
 
