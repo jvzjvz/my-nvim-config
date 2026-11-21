@@ -79,8 +79,7 @@ local colorschemes = {
     'https://github.com/henit-chobisa/koala-neovim',
     'https://github.com/vague-theme/vague.nvim',
     'https://github.com/kryptamine/gruber-darker-renaissance',
-    'https://github.com/stancl/alabaster-rose.nvim',
-    'https://github.com/st-eez/osaka-jade.nvim',
+    -- 'https://github.com/stancl/alabaster-rose.nvim',
     -- { src = 'https://github.com/mandalay-rp/jellybeans-lua.nvim', name = 'jellybeans-lua' }
     -- 'https://github.com/Lokaltog/vim-monotone'
 }

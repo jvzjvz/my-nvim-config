@@ -100,7 +100,7 @@ require('which-key').setup {}
 --     -- }
 -- }
 
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'number'
 
 vim.diagnostic.config({
     float = { border = "rounded" },
