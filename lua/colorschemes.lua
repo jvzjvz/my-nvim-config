@@ -82,6 +82,7 @@ local colorschemes = {
     -- 'https://github.com/stancl/alabaster-rose.nvim',
     -- { src = 'https://github.com/mandalay-rp/jellybeans-lua.nvim', name = 'jellybeans-lua' }
     -- 'https://github.com/Lokaltog/vim-monotone'
+    {src ='https://github.com/amaskalenka/acme.nvim', name = 'acme-nvim'}
 }
 
 vim.pack.add(colorschemes)
@@ -396,7 +397,8 @@ local tinted_default_config = {
 }
 
 -- local tinted_default_scheme = 'base24-arthur'
-local tinted_default_scheme = 'base16-terracotta-dark'
+-- local tinted_default_scheme = 'base16-terracotta-dark'
+local tinted_default_scheme = 'base16-sequoia-moonlight-dark'
 
 require('tinted-nvim').setup {
     -- default_scheme = 'base24-twilight',
@@ -439,5 +441,13 @@ require('tinted-nvim').setup {
 }
 
 vim.cmd.colorscheme(tinted_default_scheme)
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+    callback = function ()
+        vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', {
+            link = 'Comment'
+        })
+    end
+})
 
 return C

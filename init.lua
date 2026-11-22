@@ -62,6 +62,22 @@ vim.opt.signcolumn = 'no'
 --     end
 -- end
 
+-- vim.opt.viewoptions = {'folds', 'cursor'}
+
+vim.api.nvim_create_autocmd('BufWinLeave', {
+    pattern = "*",
+    callback = function ()
+        vim.cmd('silent! mkview')
+    end
+})
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    pattern = '*',
+    callback = function ()
+        vim.cmd('silent! loadview')
+    end
+})
+
 require('colorschemes')
 require("lsp")
 
@@ -247,8 +263,12 @@ local ts = require('nvim-treesitter')
 
 local map = vim.keymap.set
 
--- map('n', 'gc', function()
---   require('treesitter-context').go_to_context(vim.v.count1)
+map('n', '[c', function()
+  require('treesitter-context').go_to_context(1)
+end, { silent = true })
+
+-- map('n', ']c', function()
+--   require('treesitter-context').go_to_context(-1)
 -- end, { silent = true })
 
 -- map({ 'n' }, '<leader>c', 'gcc', { remap = true })
