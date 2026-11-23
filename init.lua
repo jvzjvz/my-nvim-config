@@ -168,7 +168,11 @@ vim.keymap.set('n', '<leader>d', builtin.diagnostics, { desc = 'Telescope Diagno
 -- vim.keymap.set('n', '<leader>s', builtin.current_buffer_tags, { desc = 'Telescope buffer tags' })
 vim.keymap.set('n', '<leader>m', builtin.marks, { desc ='Telescope marks'})
 vim.keymap.set('n', '<leader>n', function()
-    builtin.find_files { cwd = vim.fn.stdpath('config') } -- TODO: change to just open the config file, no need for telescope picker
+    if vim.fn.has('linux') == 1 then
+        builtin.find_files { cwd = vim.fn.expand('~/.config/') }
+    else
+        builtin.find_files { cwd = vim.fn.stdpath('config') }
+    end
 end, { desc = 'Telescope Neovim config files' })
 
 require('telescope').setup {

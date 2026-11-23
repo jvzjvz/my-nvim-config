@@ -82,7 +82,6 @@ local colorschemes = {
     -- 'https://github.com/stancl/alabaster-rose.nvim',
     -- { src = 'https://github.com/mandalay-rp/jellybeans-lua.nvim', name = 'jellybeans-lua' }
     -- 'https://github.com/Lokaltog/vim-monotone'
-    {src ='https://github.com/amaskalenka/acme.nvim', name = 'acme-nvim'}
 }
 
 vim.pack.add(colorschemes)
@@ -416,12 +415,6 @@ require('tinted-nvim').setup {
 
     highlights = {
         overrides = function (palette)
-            -- if tinted_default_scheme == 'base16-terracotta-dark' then
-            --     return {
-            --         ['@variable.member'] = '#FFFFFF'
-            --     }
-            -- end
-            --
             return {
                 Visual = { reverse = true }
             }
@@ -440,7 +433,7 @@ require('tinted-nvim').setup {
     }
 }
 
-vim.cmd.colorscheme(tinted_default_scheme)
+vim.cmd.colorscheme('lapis')
 
 vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function ()
